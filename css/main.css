@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+nav {
+  float: right;
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  font-size: 1.5em;
+  width: 100%; }
+  @media (max-width: 479px) {
+    nav {
+      width: 100%;
+      padding: 50px 0 15px; } }
+  nav ul {
+    list-style: none;
+    background-color: #2da9ff; }
+    @media (max-width: 479px) {
+      nav ul {
+        display: none; } }
+    nav ul li {
+      float: left;
+      position: relative; }
+      @media (max-width: 479px) {
+        nav ul li {
+          float: none; } }
+      @media (min-width: 480px) and (max-width: 899px) {
+        nav ul li {
+          width: 33.33%; } }
+      nav ul li a {
+        display: block;
+        padding: 0 20px;
+        line-height: 50px;
+        background: #2da9ff;
+        color: #fff;
+        text-decoration: none;
+        border-right: 1px solid #fff;
+        /* any a tag in our nav list that is NOT an only child */ }
+        @media (min-width: 480px) and (max-width: 899px) {
+          nav ul li a {
+            text-align: center; } }
+        nav ul li a:hover {
+          background: #0a75be; }
+        @media (max-width: 479px) {
+          nav ul li a {
+            padding: 15px;
+            line-height: 20px;
+            border-right: none;
+            border-top: 1px solid #fff; } }
+      nav ul li ul li {
+        min-width: 138px; }
+        nav ul li ul li a {
+          padding: 15px;
+          line-height: 20px; }
+          @media (max-width: 479px) {
+            nav ul li ul li a {
+              padding-left: 30px;
+              border: none; } }
+          @media (min-width: 480px) and (max-width: 899px) {
+            nav ul li ul li a {
+              border-right: none;
+              border-top: 1px solid #fff;
+              width: 100%;
+              padding-left: 20px; } }
+  nav ul.nav-dropdown {
+    position: absolute;
+    z-index: 1;
+    display: none; }
+    @media (max-width: 479px) {
+      nav ul.nav-dropdown {
+        position: static;
+        border-top: 1px solid #fff; } }
+
+.tablet-nav {
+  position: absolute;
+  z-index: 1;
+  display: flex !important;
+  justify-content: space-around;
+  width: 100%; }
+  .tablet-nav li {
+    min-width: 75%;
+    display: flex;
+    justify-content: space-around; }
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #2da9ff;
+  height: 50px;
+  width: 50px; }
+  @media (max-width: 479px) {
+    .nav-mobile {
+      display: block; } }
+
+@media (max-width: 479px) {
+  .nav-list {
+    border-bottom: 1px solid #fff; } }
+@media (min-width: 480px) and (max-width: 899px) {
+  .nav-list {
+    display: block !important; } }
+@media (min-width: 900px) {
+  .nav-list {
+    display: block !important; } }
+
+.navigation {
+  height: 50px;
+  background: #2da9ff; }
+
+.nav-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; }
+
+.brand {
+  position: absolute;
+  line-height: 50px;
+  font-size: 2em;
+  font-family: "Inconsolata", monospace; }
+  .brand a,
+  .brand a:visited {
+    color: #ffffff;
+    text-decoration: none; }
+  @media (min-width: 480px) and (max-width: 899px) {
+    .brand {
+      display: none; } }
+  @media (min-width: 900px) {
+    .brand {
+      display: none; } }
+
+/* Elijah Manor CSS animated hamburger icon START http://codepen.io/elijahmanor/pen/Igpoe */
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 13px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px; }
+  #nav-toggle span,
+  #nav-toggle span:before,
+  #nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 35px;
+    background: #fff;
+    position: absolute;
+    display: block;
+    content: "";
+    transition: all 300ms ease-in-out; }
+  #nav-toggle span:before {
+    top: -10px; }
+  #nav-toggle span:after {
+    bottom: -10px; }
+  #nav-toggle.active span {
+    background-color: transparent; }
+    #nav-toggle.active span:before, #nav-toggle.active span:after {
+      top: 0; }
+    #nav-toggle.active span:before {
+      transform: rotate(45deg); }
+    #nav-toggle.active span:after {
+      transform: rotate(-45deg); }
+
+.top-img {
+  width: 100%; }
+
+html {
+  background-color: #030e35; }
+
+/*# sourceMappingURL=main.css.map */
