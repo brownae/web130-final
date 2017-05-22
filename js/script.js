@@ -2,9 +2,6 @@ $(function() { // DOM Ready
     // Insert all scripts here
 
     $('nav ul li > a:not(:only-child)').click(function(e) {
-        if ($(document).width() >= 480 && $(document).width() <= 900){
-            $('.nav-dropdown').toggleClass('tablet-nav');
-        }else
             $(this).siblings('.nav-dropdown').toggle();
 
     //Prevent other nav-dropdowns from opening when one is clicked

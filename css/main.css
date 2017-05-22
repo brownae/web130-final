@@ -55,132 +55,81 @@ nav {
   font-family: "Inconsolata", monospace;
   font-weight: 400;
   font-size: 1.5em;
-  width: 100%; }
-  @media (max-width: 479px) {
-    nav {
-      width: 100%;
-      padding: 50px 0 15px; } }
+  width: 100%;
+  padding: 50px 0 15px; }
   nav ul {
+    display: none;
     list-style: none;
     background-color: #2da9ff; }
-    @media (max-width: 479px) {
-      nav ul {
-        display: none; } }
     nav ul li {
-      float: left;
+      float: none;
       position: relative; }
-      @media (max-width: 479px) {
-        nav ul li {
-          float: none; } }
-      @media (min-width: 480px) and (max-width: 899px) {
-        nav ul li {
-          width: 33.33%; } }
       nav ul li a {
         display: block;
-        padding: 0 20px;
         line-height: 50px;
         background: #2da9ff;
         color: #fff;
         text-decoration: none;
-        border-right: 1px solid #fff;
+        text-align: center;
+        padding: 15px;
+        line-height: 20px;
         /* any a tag in our nav list that is NOT an only child */ }
-        @media (min-width: 480px) and (max-width: 899px) {
-          nav ul li a {
-            text-align: center; } }
         nav ul li a:hover {
           background: #0a75be; }
-        @media (max-width: 479px) {
-          nav ul li a {
-            padding: 15px;
-            line-height: 20px;
-            border-right: none;
-            border-top: 1px solid #fff; } }
       nav ul li ul li {
         min-width: 138px; }
         nav ul li ul li a {
-          padding: 15px;
-          line-height: 20px; }
-          @media (max-width: 479px) {
-            nav ul li ul li a {
-              padding-left: 30px;
-              border: none; } }
-          @media (min-width: 480px) and (max-width: 899px) {
-            nav ul li ul li a {
-              border-right: none;
-              border-top: 1px solid #fff;
-              width: 100%;
-              padding-left: 20px; } }
+          padding: 15px 15px 15px 30px;
+          line-height: 20px;
+          border: none; }
   nav ul.nav-dropdown {
     position: absolute;
     z-index: 1;
-    display: none; }
-    @media (max-width: 479px) {
-      nav ul.nav-dropdown {
-        position: static;
-        border-top: 1px solid #fff; } }
-
-.tablet-nav {
-  position: absolute;
-  z-index: 1;
-  display: flex !important;
-  justify-content: space-around;
-  width: 100%; }
-  .tablet-nav li {
-    min-width: 75%;
-    display: flex;
-    justify-content: space-around; }
+    display: none;
+    position: static;
+    border-top: 1px solid #fff; }
 
 .nav-mobile {
   display: none;
   position: absolute;
   top: 0;
-  left: 0;
-  background: #2da9ff;
+  right: 10px;
   height: 50px;
-  width: 50px; }
-  @media (max-width: 479px) {
-    .nav-mobile {
-      display: block; } }
+  width: 50px;
+  display: block; }
 
-@media (max-width: 479px) {
-  .nav-list {
-    border-bottom: 1px solid #fff; } }
-@media (min-width: 480px) and (max-width: 899px) {
-  .nav-list {
-    display: block !important; } }
-@media (min-width: 900px) {
-  .nav-list {
-    display: block !important; } }
+.nav-list {
+  border-bottom: 1px solid #fff; }
 
 .navigation {
   height: 50px;
-  background: #2da9ff; }
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 1; }
 
 .nav-container {
   margin: 0 auto;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  background-color: transparent; }
 
 .brand {
   position: absolute;
+  left: 20px;
+  width: 70px;
+  height: 50px;
+  margin-top: 10px;
   line-height: 50px;
   font-size: 2em;
-  font-family: "Inconsolata", monospace; }
-  .brand a,
-  .brand a:visited {
-    color: #ffffff;
-    text-decoration: none; }
-  @media (min-width: 480px) and (max-width: 899px) {
-    .brand {
-      display: none; } }
-  @media (min-width: 900px) {
-    .brand {
-      display: none; } }
+  font-family: "Inconsolata", monospace;
+  background-image: url("../img/canon.svg");
+  background-repeat: no-repeat; }
 
 /* Elijah Manor CSS animated hamburger icon START http://codepen.io/elijahmanor/pen/Igpoe */
 #nav-toggle {
   position: absolute;
-  left: 18px;
+  left: 8px;
   top: 13px;
   cursor: pointer;
   padding: 10px 35px 16px 0px; }

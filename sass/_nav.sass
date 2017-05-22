@@ -3,6 +3,7 @@
 $lightBlue: #2da9ff
 $darkBlue: #0a75be
 $white: #fff
+$transparent: rgba(0, 0, 0, 0)
 $content-width: 1000px
 $breakpoint: 800px
 $nav-height: 50px
@@ -21,36 +22,26 @@ nav
     font-weight: 400
     font-size: 1.5em
     width: 100%
-    @include phone
-        width: 100%
-        padding: $nav-height 0 15px
+    padding: $nav-height 0 15px
 
     ul
-        @include phone
-            display: none
-
+        display: none
         list-style: none
         background-color: $lightBlue
 
         li
-            @include phone
-                float: none
-            @include tablet
-                width: 33.33%
-
-            float: left
+            float: none
             position: relative
 
             a
                 display: block
-                padding: 0 20px
                 line-height: $nav-height
                 background: $lightBlue
                 color: $white
                 text-decoration: none
-                border-right: 1px solid $white
-                @include tablet
-                    text-align: center
+                text-align: center
+                padding: 15px
+                line-height: 20px
 
                 &:hover
                     background: $darkBlue
@@ -60,99 +51,88 @@ nav
                 //     padding-left: 4px
                 //     content: ' ▾'
 
-                @include phone
-                    padding: 15px
-                    line-height: 20px
-                    border-right: none
-                    border-top: 1px solid $white
-                    //border-bottom: 2px solid $white
 
             ul li
                 min-width: 138px
                 a
-                    padding: 15px
+                    padding: 15px 15px 15px 30px
                     line-height: 20px
-                    @include phone
-                        padding-left: 30px
-                        border: none
-                    @include tablet
-                        border-right: none
-                        border-top: 1px solid #fff
-                        width: 100%
-                        padding-left: 20px
+                    border: none
 
     ul.nav-dropdown
         position: absolute
         z-index: 1
         //box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15)
         display: none
-        @include phone
-            position: static
-            border-top: 1px solid $white
+        position: static
+        border-top: 1px solid $white
 //had to create a separate class for tablet. display: flex kept overriding the display none when part of ul.nav-dropdown.
-.tablet-nav
-    position: absolute
-    z-index: 1
-    display: flex !important
-    justify-content: space-around
-    width: 100%
-    li
-        min-width: 75%
-        display: flex
-        justify-content: space-around
+// .tablet-nav
+//     position: absolute
+//     z-index: 1
+//     display: flex !important
+//     justify-content: space-around
+//     width: 100%
+//     li
+//         min-width: 75%
+//         display: flex
+//         justify-content: space-around
 
 
 .nav-mobile
     display: none
     position: absolute
     top: 0
-    left: 0
-    background: $lightBlue
+    right: 10px
+    // background: $lightBlue
     height: $nav-height
     width: $nav-height
-    @include phone
-        display: block
+    display: block
 
 .nav-list
-    @include phone
-        border-bottom: 1px solid $white
-    @include tablet
-        display: block !important
-    @include desktop
-        display: block !important
+    border-bottom: 1px solid $white
 
 .navigation
     height: $nav-height
-    background: $lightBlue
+    // background: $lightBlue
+    height: 50px
+    width: 100%
+    position: fixed
+    z-index: 1
 
 .nav-container
-    //max-width: 1000px
     margin: 0 auto
     display: flex
     justify-content: center
+    background-color: $transparent
 
 .brand
     position: absolute
+    left: 20px
+    width: 70px
+    height: 50px
+    margin-top: 10px
     line-height: $nav-height
     font-size: 2em
     font-family: $nav-font
+    background-image: url('../img/canon.svg')
+    background-repeat: no-repeat
 
-    a,
-    a:visited
-        color: $nav-font-color
-        text-decoration: none
+    // a,
+    // a:visited
+    //     color: $nav-font-color
+    //     text-decoration: none
+        // span
+        //     width: 35px
+        //     height: 35px
 
-    @include tablet
-        display: none
-    @include desktop
-        display: none
 
 
 
 /* Elijah Manor CSS animated hamburger icon START http://codepen.io/elijahmanor/pen/Igpoe */
 #nav-toggle
     position: absolute
-    left: 18px
+    left: 8px
     top: 13px
     cursor: pointer
     padding: 10px 35px 16px 0px

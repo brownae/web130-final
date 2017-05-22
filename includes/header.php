@@ -11,9 +11,9 @@
     <body>
         <section class="navigation">
             <div class="nav-container">
-                <div class="brand">
-                    <a href="#!">Logo</a>
-                </div>
+                <a href="#!">
+                    <div class="brand"></div>
+                </a>
                 <nav>
                     <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
                     <ul class="nav-list">
