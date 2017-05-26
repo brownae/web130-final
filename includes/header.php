@@ -18,44 +18,47 @@
                     <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
                     <ul class="nav-list">
                         <li>
-                          <a href="#!">Home</a>
+                            <a href="#!">Reservations</a>
                         </li>
                         <li>
-                          <a href="#!">About</a>
-                        </li>
-                        <li>
-                            <a href="#!">Services</a>
+                            <a href="#!">Menu +</a>
                             <ul class="nav-dropdown">
-                                <li>
-                                    <a href="#!">Web Design</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Web Development</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Graphic Design</a>
-                                </li>
+                                <li><a href="#!">Food</a></li>
+                                <li><a href="#!">Cocktails</a></li>
+                                <li><a href="#!">Bottle library</a></li>
                             </ul>
                         </li>
                         <li>
-                          <a href="#!">Pricing</a>
+                            <a href="#!">Awards</a>
                         </li>
                         <li>
-                            <a href="#!">Portfolio</a>
-                            <ul class="nav-dropdown">
-                            <li>
-                                <a href="#!">Web Design</a>
-                            </li>
-                            <li>
-                                <a href="#!">Web Development</a>
-                            </li>
-                            <li>
-                                <a href="#!">Graphic Design</a>
-                            </li>
-                            </ul>
+                            <a href="#!">Book</a>
                         </li>
                         <li>
-                          <a href="#!">Contact</a>
+                            <a href="#!">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#!">About</a>
+                        </li>
+                        <li>
+                            <a href="#!">Contact</a>
+                        </li>
+                        <li id="social-media">
+                            <a href="#"><svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            	 width="40px" height="40px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                            <path id="Facebook" fill="#ffffff" d="M95,20.001C95,12.119,87.884,5,80,5h-60C12.116,5,5,12.119,5,20.001v59.998
+                            	C5,87.881,12.116,95,20.001,95H50V61H39V46h11v-5.844C50,30.077,57.569,21,66.875,21H79v15H66.875C65.548,36,64,37.611,64,40.024V46
+                            	h15v15H64v34h16c7.884,0,15-7.119,15-15.001V20.001z"/>
+                            </svg></a>
+                            <a href="#"><svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            	 width="40px" height="40px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                            <path id="Twitter" fill="#ffffff" d="M72.262,72.496H50.054c-3.087,0-5.712-1.08-7.869-3.25c-2.167-2.172-3.238-4.797-3.238-7.899v-7.903h31.644
+                            	c2.854,0,5.312-1.026,7.354-3.063c2.042-2.054,3.066-4.509,3.066-7.366c0-2.867-1.025-5.319-3.072-7.366
+                            	c-2.049-2.042-4.514-3.066-7.38-3.066H38.947V16.254c0-3.09-1.102-5.735-3.29-7.939C33.478,6.107,30.843,5,27.782,5
+                            	c-3.146,0-5.825,1.091-8.004,3.25c-2.186,2.166-3.278,4.834-3.278,8.014v45.09c0,9.274,3.278,17.197,9.837,23.773
+                            	C32.902,91.715,40.815,95,50.067,95h22.202c3.083,0,5.729-1.107,7.93-3.315c2.203-2.197,3.302-4.848,3.302-7.935
+                            	c0-3.088-1.099-5.734-3.302-7.941C77.997,73.607,75.347,72.496,72.262,72.496z"/>
+                            </svg></a>
                         </li>
                     </ul>
                 </nav>

@@ -1,20 +1,22 @@
 
 //Vars
-$lightBlue: #2da9ff
-$darkBlue: #0a75be
 $white: #fff
-$transparent: rgba(0, 0, 0, 0)
-$content-width: 1000px
-$breakpoint: 800px
+$whiteTransparent: rgba(255, 255, 255, .2)
+$blackTransparent: rgba(0, 0, 0, .70)
+// $content-width: 1000px
+// $breakpoint: 800px
 $nav-height: 50px
 $nav-background: #262626
 $nav-font-color: #ffffff
-$link-hover-color: #2581DC
+$link-hover-color: #ffde4c
 $nav-font: 'Inconsolata', monospace
 
 a
     text-decoration: none
     color: $white
+
+.active-nav
+    background: $blackTransparent
 
 nav
     float: right
@@ -24,10 +26,11 @@ nav
     width: 100%
     padding: $nav-height 0 15px
 
+
     ul
         display: none
         list-style: none
-        background-color: $lightBlue
+        // background-color: $blackTransparent
 
         li
             float: none
@@ -36,7 +39,7 @@ nav
             a
                 display: block
                 line-height: $nav-height
-                background: $lightBlue
+                // background: $blackTransparent
                 color: $white
                 text-decoration: none
                 text-align: center
@@ -44,12 +47,12 @@ nav
                 line-height: 20px
 
                 &:hover
-                    background: $darkBlue
+                    color: $link-hover-color
 
                 /* any a tag in our nav list that is NOT an only child */
                 // &:not(:only-child):after
-                //     padding-left: 4px
-                //     content: ' ▾'
+                    padding-left: 4px
+                    content: ' ▾'
 
 
             ul li
@@ -62,39 +65,26 @@ nav
     ul.nav-dropdown
         position: absolute
         z-index: 1
-        //box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15)
         display: none
         position: static
-        border-top: 1px solid $white
-//had to create a separate class for tablet. display: flex kept overriding the display none when part of ul.nav-dropdown.
-// .tablet-nav
-//     position: absolute
-//     z-index: 1
-//     display: flex !important
-//     justify-content: space-around
-//     width: 100%
-//     li
-//         min-width: 75%
-//         display: flex
-//         justify-content: space-around
-
+        background: $whiteTransparent
 
 .nav-mobile
     display: none
     position: absolute
     top: 0
     right: 10px
-    // background: $lightBlue
+    // background: $blackTransparent
     height: $nav-height
     width: $nav-height
     display: block
 
 .nav-list
-    border-bottom: 1px solid $white
+    // border-bottom: 1px solid $white
 
 .navigation
     height: $nav-height
-    // background: $lightBlue
+    // background: $blackTransparent
     height: 50px
     width: 100%
     position: fixed
@@ -104,7 +94,7 @@ nav
     margin: 0 auto
     display: flex
     justify-content: center
-    background-color: $transparent
+    // background-color: $blackTransparent
 
 .brand
     position: absolute
@@ -169,3 +159,15 @@ nav
             transform: rotate(-45deg)
 
 //Elijah Manor CSS animated hamburger icon END
+
+// Social media icons Start ////
+li#social-media
+    display: flex
+    justify-content: center
+
+a svg:hover #Facebook,
+a svg:hover #Twitter
+    fill: $link-hover-color
+
+
+// Social media icons end   ////

@@ -50,6 +50,9 @@ a {
   text-decoration: none;
   color: #fff; }
 
+.active-nav {
+  background: rgba(0, 0, 0, 0.7); }
+
 nav {
   float: right;
   font-family: "Inconsolata", monospace;
@@ -59,15 +62,13 @@ nav {
   padding: 50px 0 15px; }
   nav ul {
     display: none;
-    list-style: none;
-    background-color: #2da9ff; }
+    list-style: none; }
     nav ul li {
       float: none;
       position: relative; }
       nav ul li a {
         display: block;
         line-height: 50px;
-        background: #2da9ff;
         color: #fff;
         text-decoration: none;
         text-align: center;
@@ -75,7 +76,7 @@ nav {
         line-height: 20px;
         /* any a tag in our nav list that is NOT an only child */ }
         nav ul li a:hover {
-          background: #0a75be; }
+          color: #ffde4c; }
       nav ul li ul li {
         min-width: 138px; }
         nav ul li ul li a {
@@ -87,7 +88,7 @@ nav {
     z-index: 1;
     display: none;
     position: static;
-    border-top: 1px solid #fff; }
+    background: rgba(255, 255, 255, 0.2); }
 
 .nav-mobile {
   display: none;
@@ -97,9 +98,6 @@ nav {
   height: 50px;
   width: 50px;
   display: block; }
-
-.nav-list {
-  border-bottom: 1px solid #fff; }
 
 .navigation {
   height: 50px;
@@ -111,8 +109,7 @@ nav {
 .nav-container {
   margin: 0 auto;
   display: flex;
-  justify-content: center;
-  background-color: transparent; }
+  justify-content: center; }
 
 .brand {
   position: absolute;
@@ -158,8 +155,29 @@ nav {
     #nav-toggle.active span:after {
       transform: rotate(-45deg); }
 
+li#social-media {
+  display: flex;
+  justify-content: center; }
+
+a svg:hover #Facebook,
+a svg:hover #Twitter {
+  fill: #ffde4c; }
+
+img {
+  width: 100%; }
+
 .top-img {
   width: 100%; }
+
+.logo {
+  width: 75%;
+  margin: 25px auto; }
+  @media (min-width: 480px) and (max-width: 899px) {
+    .logo {
+      width: 50%; } }
+  @media (min-width: 900px) {
+    .logo {
+      width: 50%; } }
 
 html {
   background-color: #030e35; }
