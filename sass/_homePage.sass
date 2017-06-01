@@ -17,6 +17,12 @@
         font-size: 1.3em
         font-weight: 700
         margin-top: 10px
+main aside
+    background-color: $grey
+    font-family: $serifFont
+    padding: 20px
+    margin: 20px 0
+    clear: both
 
 .cta
     margin: 20px 0
@@ -30,8 +36,12 @@
         text-align: center
         margin-top: 11%
 
+.cta1, .cta3
+    @include tablet
+        width: 50%
+        float: left
 
-
-
-// .cta1
-//     background-image: url('../img/cta-food.png')
+.cta2,.cta4
+    @include tablet
+        width: 50%
+        float: right

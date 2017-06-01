@@ -29,7 +29,10 @@
         <a href="#" ><h2>Book</h2></a>
         <img src="img/cta-book.png" alt="Book for Canon restaurant">
     </div>
-
+    <aside class="seo">
+        <p>Canon has achieved unprecedented, worldwide acclaim in just a handful of years since opening. Named by Esquire as one of the best bars in America, it recieved Tales of the Cocktail Spirited Awards for World’s Best Drink Selection in 2013 and World’s Best Spirits Selection in 2015, and Drinks International included it on their presteigous World’s 50 Best Bars list. Cannon is 7 tables and 32 seats in a 450 square foot dinning room in the rich night life area of Capitol hill Seattle.</p>
+        <p>Canon has the largest spirit collection in the western hemisphere at 3,500 labels and counting.</p>
+    </aside>
 
 
 
