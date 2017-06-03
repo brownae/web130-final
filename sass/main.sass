@@ -18,5 +18,43 @@ body
     color: $white
     font-family: $typewriter
     line-height: 1.2em
+    max-width: 1200px
+    margin: auto
 p
     margin-top: 10px
+
+footer
+    @include desktop
+        background-color: $lightGrey
+        padding: 20px
+        overflow: auto
+        img
+            width: 50%
+            float: right
+
+.columns
+    column-width: 8em
+    @include tablet
+        column-width: 11.2em
+    @include desktop
+        column-width: 11.2em
+.utility-menu
+    background-color: $lightGrey
+    padding: 20px
+
+    @include desktop
+        width: 50%
+
+    a
+        color: $black
+    a:hover
+        color: $link-hover-color
+    ul
+        li.social-media
+            float: left
+            margin-top: 10px
+            a
+                margin-right: 10px
+
+        ul
+            padding: 0 0 0 15px

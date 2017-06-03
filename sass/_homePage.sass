@@ -18,7 +18,7 @@
         font-weight: 700
         margin-top: 10px
 main aside
-    background-color: $grey
+    background-color: $darkGrey
     font-family: $serifFont
     padding: 20px
     margin: 20px 0
@@ -38,10 +38,16 @@ main aside
 
 .cta1, .cta3
     @include tablet
+        width: 49%
+        float: left
+    @include desktop
         width: 50%
         float: left
 
 .cta2,.cta4
     @include tablet
+        width: 49%
+        float: right
+    @include desktop
         width: 50%
         float: right

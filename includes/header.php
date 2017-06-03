@@ -15,7 +15,9 @@
                     <div class="brand"></div>
                 </a>
                 <nav>
-                    <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+                    <div class="nav-mobile">
+                        <a id="nav-toggle" href="#!"><span></span></a>
+                    </div>
                     <ul class="nav-list">
                         <li>
                             <a href="#!">Reservations</a>
@@ -43,7 +45,7 @@
                         <li>
                             <a href="#!">Contact</a>
                         </li>
-                        <li id="social-media">
+                        <li class="social-media">
                             <a href="#"><svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             	 width="40px" height="40px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
                             <path id="Facebook" fill="#ffffff" d="M95,20.001C95,12.119,87.884,5,80,5h-60C12.116,5,5,12.119,5,20.001v59.998

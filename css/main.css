@@ -160,7 +160,7 @@ nav {
     #nav-toggle.active span:after {
       transform: rotate(-45deg); }
 
-li#social-media {
+li.social-media {
   display: flex;
   justify-content: center; }
 
@@ -212,10 +212,18 @@ main aside {
 
 @media (min-width: 480px) and (max-width: 899px) {
   .cta1, .cta3 {
+    width: 49%;
+    float: left; } }
+@media (min-width: 900px) {
+  .cta1, .cta3 {
     width: 50%;
     float: left; } }
 
 @media (min-width: 480px) and (max-width: 899px) {
+  .cta2, .cta4 {
+    width: 49%;
+    float: right; } }
+@media (min-width: 900px) {
   .cta2, .cta4 {
     width: 50%;
     float: right; } }
@@ -232,9 +240,47 @@ html {
 body {
   color: #fff;
   font-family: "atwriter", serif;
-  line-height: 1.2em; }
+  line-height: 1.2em;
+  max-width: 1200px;
+  margin: auto; }
 
 p {
   margin-top: 10px; }
+
+@media (min-width: 900px) {
+  footer {
+    background-color: #bababa;
+    padding: 20px;
+    overflow: auto; }
+    footer img {
+      width: 50%;
+      float: right; } }
+
+.columns {
+  column-width: 8em; }
+  @media (min-width: 480px) and (max-width: 899px) {
+    .columns {
+      column-width: 11.2em; } }
+  @media (min-width: 900px) {
+    .columns {
+      column-width: 11.2em; } }
+
+.utility-menu {
+  background-color: #bababa;
+  padding: 20px; }
+  @media (min-width: 900px) {
+    .utility-menu {
+      width: 50%; } }
+  .utility-menu a {
+    color: #000000; }
+  .utility-menu a:hover {
+    color: #ffde4c; }
+  .utility-menu ul li.social-media {
+    float: left;
+    margin-top: 10px; }
+    .utility-menu ul li.social-media a {
+      margin-right: 10px; }
+  .utility-menu ul ul {
+    padding: 0 0 0 15px; }
 
 /*# sourceMappingURL=main.css.map */
