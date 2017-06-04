@@ -81,7 +81,7 @@ nav {
         text-decoration: none;
         text-align: center;
         padding: 15px;
-        line-height: 10px;
+        line-height: 0px;
         /* any a tag in our nav list that is NOT an only child */ }
         nav ul li a:hover {
           color: #ffde4c; }

@@ -9,9 +9,9 @@
 
     </div>
     <div class="info">
+        <address>928 12th Ave, Seattle, WA</address>
         <p>Open 5pm-2am daily.</p>
         <p>Closed July 4th, Thanksgiving, Christmas Day, and New Year's Day</p>
-        <address>928 12th Ave, Seattle, WA</address>
     </div>
     <div class="cta cta1">
         <a href="#" ><h2>Food</h2></a>
