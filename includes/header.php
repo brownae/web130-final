@@ -23,7 +23,7 @@
                             <a href="#!">Reservations</a>
                         </li>
                         <li>
-                            <a href="#!">Menu +</a>
+                            <a href="#!">Menu &#9662;</a>
                             <ul class="nav-dropdown">
                                 <li><a href="#!">Food</a></li>
                                 <li><a href="#!">Cocktails</a></li>

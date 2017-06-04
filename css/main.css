@@ -56,7 +56,11 @@ a {
   color: #fff; }
 
 .active-nav {
-  background: rgba(0, 0, 0, 0.7); }
+  background: rgba(0, 0, 0, 0.9); }
+
+.scrolled {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  transition: background-color 200ms linear; }
 
 nav {
   float: right;
@@ -64,7 +68,7 @@ nav {
   font-weight: 400;
   font-size: 1.5em;
   width: 100%;
-  padding: 50px 0 15px; }
+  padding: 50px 0 10px; }
   nav ul {
     display: none;
     list-style: none; }
@@ -73,12 +77,11 @@ nav {
       position: relative; }
       nav ul li a {
         display: block;
-        line-height: 50px;
         color: #fff;
         text-decoration: none;
         text-align: center;
         padding: 15px;
-        line-height: 20px;
+        line-height: 10px;
         /* any a tag in our nav list that is NOT an only child */ }
         nav ul li a:hover {
           color: #ffde4c; }
@@ -98,8 +101,8 @@ nav {
 .nav-mobile {
   display: none;
   position: absolute;
-  top: 0;
-  right: 10px;
+  top: 5px;
+  right: 15px;
   height: 50px;
   width: 50px;
   display: block; }
@@ -118,10 +121,10 @@ nav {
 
 .brand {
   position: absolute;
-  left: 20px;
+  left: 25px;
   width: 70px;
   height: 50px;
-  margin-top: 10px;
+  margin-top: 15px;
   line-height: 50px;
   font-size: 2em;
   font-family: "Inconsolata", monospace;
