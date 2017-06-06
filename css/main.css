@@ -113,7 +113,8 @@ nav {
   height: 50px;
   width: 100%;
   position: fixed;
-  z-index: 1; }
+  z-index: 1;
+  max-width: 1200px; }
 
 .nav-container {
   margin: 0 auto;
@@ -247,8 +248,11 @@ body {
   color: #fff;
   font-family: "atwriter", serif;
   line-height: 1.2em;
-  max-width: 1200px;
-  margin: auto; }
+  margin: auto;
+  width: 100%; }
+
+div#wrapper {
+  max-width: 1200px; }
 
 p {
   margin-top: 10px; }
