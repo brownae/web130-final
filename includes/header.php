@@ -10,7 +10,7 @@
     <body>
         <section class="navigation">
             <div class="nav-container">
-                <a href="#!">
+                <a href="index.php">
                     <div class="brand"></div>
                 </a>
                 <nav>
@@ -22,7 +22,7 @@
                             <a href="#!">Reservations</a>
                         </li>
                         <li>
-                            <a href="#!">Menu +</a>
+                            <a href="#!">Menu &#9662;</a>
                             <ul class="nav-dropdown">
                                 <li><a href="#!">Food</a></li>
                                 <li><a href="#!">Cocktails</a></li>
@@ -30,7 +30,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#!">Awards</a>
+                            <a href="awards.php">Awards</a>
                         </li>
                         <li>
                             <a href="#!">Book</a>

@@ -13,6 +13,7 @@
                     <li><a href="#">Cocktails</a></li>
                     <li><a href="#">Bottle Library</a></li>
                 </ul>
+                <li><a href="awards.php">Awards</a></li>
                 <li><a href="#">Book</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
