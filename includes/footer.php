@@ -54,5 +54,6 @@
     </div>
 
 </footer>
+<script src="js/build/main.js" charset="utf-8"></script>
 </body>
 </html>
