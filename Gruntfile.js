@@ -11,7 +11,7 @@ let babel = require('rollup-plugin-babel'),
     ],
     jsMain = [
         // Main application files
-        'js/**/main.js',
+        'js/main.js',
         '!js/build/*.js'
     ],
     jsLibs = [
@@ -138,7 +138,7 @@ module.exports = (grunt) => {
             },
             app: {
                 files: {
-                    'js/build/app.min.js': 'js/build/main.js'
+                    'js/build/main.min.js': 'js/build/main.js'
                 }
             }
         }

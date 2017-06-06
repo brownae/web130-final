@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cannon</title>
         <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
-        <script src="js/build/main.js" charset="utf-8"></script>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
