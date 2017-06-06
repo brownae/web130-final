@@ -250,6 +250,37 @@ body {
 p {
   margin-top: 10px; }
 
+header {
+  position: relative; }
+  header h2 {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    color: #000000;
+    font-size: 3em; }
+
+article {
+  background: #fffdf2;
+  color: #000000;
+  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: row; }
+  article h3 span, article h4 span {
+    font-family: "Inconsolata", monospace;
+    font-weight: 700;
+    font-size: 1.2em; }
+  article .img-award {
+    width: 30%; }
+  article .content-award {
+    width: 70%;
+    margin: auto 0;
+    margin-left: 15px; }
+
 @media (min-width: 900px) {
   footer {
     background-color: #bababa;

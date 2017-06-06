@@ -23,6 +23,45 @@ body
 p
     margin-top: 10px
 
+header
+    position: relative
+    h2
+        left: 0
+        position: absolute
+        text-align: center
+        top: 50%
+        width: 100%
+        color: $black
+        font-size: 3em
+
+article
+    background: $offWhite
+    color: $black
+    padding: 20px
+    width: 90%
+    margin: 20px auto
+    overflow: auto
+    display: flex
+    flex-direction: row
+
+    h3 span, h4 span
+        font-family: $serifFont
+        font-weight: 700
+        font-size: 1.2em
+
+    .img-award
+        width: 30%
+
+    .content-award
+        width: 70%
+        margin: auto 0
+        margin-left: 15px
+    //img
+        width: 35%
+        float: left
+        max-width: 250px
+        margin: 0 19px
+
 footer
     @include desktop
         background-color: $lightGrey

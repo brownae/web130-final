@@ -11,7 +11,7 @@
     <body>
         <section class="navigation">
             <div class="nav-container">
-                <a href="#!">
+                <a href="index.php">
                     <div class="brand"></div>
                 </a>
                 <nav>
@@ -31,7 +31,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#!">Awards</a>
+                            <a href="awards.php">Awards</a>
                         </li>
                         <li>
                             <a href="#!">Book</a>
