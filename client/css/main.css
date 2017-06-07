@@ -283,10 +283,15 @@ article {
     font-size: 1.2em; }
   article .img-award {
     width: 30%; }
+  article .img-about {
+    width: 40%; }
   article .content-award {
     width: 70%;
     margin: auto 0;
     margin-left: 15px; }
+  article .content-about {
+    width: 60%;
+    margin: 15px; }
 
 @media (min-width: 900px) {
   footer {
