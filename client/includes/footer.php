@@ -49,6 +49,7 @@
                         </svg>
                     </a>
                 </li>
+                <li><a href="login.php">Staff</a></li>
             </ul>
         </div>
     </div>

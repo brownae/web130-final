@@ -1,8 +1,9 @@
 <?php include('includes/header.php');?>
 <header>
     <img class="top-img" src="img/canon-small.jpg" alt="truffle old fashioned cocktail canon seattle">
-
-    <h2>Awards</h2>
+    <div>
+        <h2>Awards</h2>
+    </div>
 </header>
 
 <main id="awardsPage">
