@@ -17192,36 +17192,78 @@ module.exports = _dereq_(23);
 	return init(function () {});
 }));
 
-$(function() { // DOM Ready
-    // Insert all scripts here
+//this is where I query the db and get the info and put it in a var
 
-    $('nav ul li > a:not(:only-child)').click(function(e) {
-        $(this).siblings('.nav-dropdown').toggle();
+// All articles
+const getAllAwards = `
+    query getAllAwards {
+        viewer {
+            allAwards{
+                edges {
+                    node {
+                        id
+                        modifiedAt
+                        createdAt
+                        awardFrom
+                        awardSrcUrl
+                        imgName
+                        awardTitle
+                        dateAwarded
+                        comments
+                    }
+                }
+            }
+        }
+    }`;
 
-        //Prevent other nav-dropdowns from opening when one is clicked
-        $('.nav-dropdown').not($(this).siblings()).hide();
-            e.stopPropagation();
+// this is the page where I say get element by id and put $thisVar in that spot.
+
+
+
+
+let displayAwards = (awards) => {
+    awards.forEach(function(award) {
+        console.log(award);
+        award.reverse();
+        let awardTemplate = `
+            <article>
+                <div class="img-award">
+                    <img src="img/${award.imgName}" alt="">
+                </div>
+                <div class="content-award">
+                    <h3><span>Award: </span>${award.awardTitle}</h3>
+                    <h4><span>From: </span>${award.awardFrom}</h4>
+                    <h4><span>Date: </span>${award.dateAwarded}</h4>
+                    <p>${award.comments}</p>
+                </div>
+            </article>
+
+        `;
+
+        $('#awardsPage').append(awardTemplate);
     });
+        // $elem = $('#article-'+ (i + 1));
+        // $elem.find('h1, h2').html(article.title);
+        // $elem.find('article').html(article.content);
+};
 
-    //this makes the menu hide again if someone clicks outside of the nav(ie on the html)
-    $('html').click(function() {
-        $('.nav-dropdown').hide();
-    });
-
-    //toggles the mobile X and hamburger
-    $('#nav-toggle').on('click', function() {
-        this.classList.toggle('active');
-    });
-
-    $('#nav-toggle').click(function() {
-        $('nav ul').toggle();
-        $('nav').toggleClass('active-nav');
-        console.log('Test');
-    });
-
-    $(document).scroll(function () {
-     var $nav = $("nav");
-     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-   });
-
+$.ajax({
+        type: "POST",
+        url: "https://us-west-2.api.scaphold.io/graphql/canon",
+        data: JSON.stringify({
+            query: getAllAwards
+        }),
+        contentType: 'application/json',
+        success: function(response) {
+            console.log(response);
+            let awards = [];
+            if (response.hasOwnProperty('data')) {
+                let awardEdges = response.data.viewer.allAwards.edges;
+                for (var award of awardEdges) {
+                    awards.push(award.node);
+                }
+            }
+            console.log(awards);
+            displayAwards(awards);
+        }
 });
