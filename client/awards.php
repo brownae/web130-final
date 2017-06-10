@@ -7,7 +7,7 @@
 </header>
 
 <main id="awardsPage">
-    <article>
+    <!-- <article>
         <div class="img-award">
             <img src="img/James-Beard-Foundation-300x144.png" alt="James beard awards foundation">
         </div>
@@ -15,7 +15,7 @@
             <h3><span>Award: </span>Outstanding Cocktail Program - Semifinalist</h3>
             <h4><span>From: </span>James Beard Foundation</h4>
             <h4><span>Date: </span>2/17/2016</h4>
-            <!-- <p>We were truly honored to be a semifinalist for outstanding cocktail program for the 2016 James Beard Awards.</p> -->
+            <p>We were truly honored to be a semifinalist for outstanding cocktail program for the 2016 James Beard Awards.</p>
         </div>
     </article>
     <article>
@@ -26,9 +26,9 @@
             <h3><span>Award: </span>Best American Cocktail Bar - Nominee</h3>
             <h4><span>From: </span>Tales of the Cocktail</h4>
             <h4><span>Date: </span>6/20/2016</h4>
-            <!-- <p>A great thanks to Tales of the cocktail for nominating us!</p> -->
+            <p>A great thanks to Tales of the cocktail for nominating us!</p>
         </div>
-    </article>
+    </article> -->
 
 </main>
 <?php include('includes/footer.php');?>
