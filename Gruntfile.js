@@ -11,14 +11,14 @@ let babel = require('rollup-plugin-babel'),
     ],
     jsMain = [
         // Main application files
-        'client/js/main.js',
+        'client/js/**/app.js',
         '!client/js/build/*.js'
     ],
     jsLibs = [
         'node_modules/jquery/dist/jquery.js',
         'node_modules/babel-polyfill/dist/polyfill.js',
         'node_modules/js-cookie/src/js.cookie.js',
-        'client/js/build/main.js'
+        'client/js/build/app.js'
     ],
     sassIncludes = [];
 
@@ -47,7 +47,7 @@ module.exports = (grunt) => {
             },
             all: {
                 src: jsLibs,
-                dest: 'client/js/build/main.js'
+                dest: 'client/js/build/app.js'
             }
         },
         rollup: {
@@ -64,7 +64,7 @@ module.exports = (grunt) => {
                 },
                 files: [{
                     src: 'client/js/build/temp.js',  // May only contain 1 src.
-                    dest: 'client/js/build/main.js',
+                    dest: 'client/js/build/app.js',
                 }]
             },
             build: {
@@ -82,7 +82,7 @@ module.exports = (grunt) => {
                 },
                 files: [{
                     src: 'client/js/build/temp.js',  // May only contain 1 src.
-                    dest: 'client/js/build/main.js',
+                    dest: 'client/js/build/app.js',
                 }]
             }
 
@@ -115,8 +115,8 @@ module.exports = (grunt) => {
                     livereload: true
                 },
                 files: [
-                    'client/js/build/main.js',
-                    'client/css/**/*.css',
+                    'client/js/build/app.js',
+                    'css/**/*.css',
                     '*.html'
                 ]
             },
@@ -138,7 +138,7 @@ module.exports = (grunt) => {
             },
             app: {
                 files: {
-                    'client/js/build/main.min.js': 'client/js/build/main.js'
+                    'client/js/build/app.min.js': 'client/js/build/app.js'
                 }
             }
         }
