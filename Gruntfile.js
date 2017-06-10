@@ -18,7 +18,7 @@ let babel = require('rollup-plugin-babel'),
         'node_modules/jquery/dist/jquery.js',
         'node_modules/babel-polyfill/dist/polyfill.js',
         'node_modules/js-cookie/src/js.cookie.js',
-        'client/js/build/app.js'
+        'client/js/build/app.js' // Rolled up source file.
     ],
     sassIncludes = [];
 
@@ -28,8 +28,8 @@ module.exports = (grunt) => {
             js: 'client/js/build/*',
             all: [
                 'client/js/build/*',
-                'client/css/main.css',
-                'client/css/main.css.map',
+                'client/css/app.css',
+                'client/css/app.min.css'
             ]
         },
         jshint: {
@@ -95,7 +95,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'client/css/main.css': 'client/sass/main.sass'
+                    'client/css/app.css': 'client/sass/app.sass'
                 }
             },
             prod: {
@@ -105,7 +105,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'client/css/main.css': 'client/sass/main.sass'
+                    'client/css/app.css': 'client/sass/app.sass'
                 }
             }
         },
@@ -151,7 +151,6 @@ module.exports = (grunt) => {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rollup');
-    grunt.loadNpmTasks('grunt-newer');
     grunt.registerTask('dev',
         "Join and rollup all the ES6, but don't transpile.",
         ['jshint:all', 'clean:js', 'concat:js', 'rollup:dev', 'concat:all']

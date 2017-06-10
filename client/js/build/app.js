@@ -17194,7 +17194,7 @@ module.exports = _dereq_(23);
 
 //this is where I query the db and get the info and put it in a var
 
-// All awardss
+// All awards
 const getAllAwards = `
     query getAllAwards {
         viewer {
