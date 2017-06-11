@@ -17192,6 +17192,57 @@ module.exports = _dereq_(23);
 	return init(function () {});
 }));
 
+//this is where I query the db and get the info and put it in a var
+
+// All awards
+const getAllAbouts = `
+    query getAllAbouts {
+        viewer {
+            allAbouts{
+                edges {
+                    node {
+                        id
+                        modifiedAt
+                        createdAt
+                        content
+                        displayOrder
+                        title
+                        name
+                        imgName
+                    }
+                }
+            }
+        }
+    }`;
+
+// this is the page where I say get element by id and put $thisVar in that spot.
+
+
+
+let displayAbouts = (abouts) => {
+abouts.forEach(function(about) {
+        console.log(about);
+
+        const aboutTemplate = `
+        <article id='${about.displayOrder}'>
+            <div class="img-about">
+                <img src="img/${about.imgName}" alt="Jaime boudreau Canon owner">
+            </div>
+            <div class="content-about">
+                <h3>Name: ${about.name}</h3>
+                <h4>Title: ${about.title}</h4>
+
+                <p>${about.content}</p>
+            </div>
+        </article>
+
+        `;
+
+        $('#aboutPage').append(aboutTemplate);
+    });
+
+};
+
 // Awards table Start ///////////////
 //the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
@@ -17286,6 +17337,26 @@ let displayAwards = (awards) => {
         // $elem.find('h1, h2').html(article.title);
         // $elem.find('article').html(article.content);
 };
+
+$.ajax({
+        type: "POST",
+        url: "https://us-west-2.api.scaphold.io/graphql/canon",
+        data: JSON.stringify({
+            query: getAllAbouts
+        }),
+        contentType: 'application/json',
+        success: function(response) {
+            abouts = [];
+            if (response.hasOwnProperty('data')) {
+                let aboutEdges = response.data.viewer.allAbouts.edges;
+                for (var about of aboutEdges) {
+                    abouts.push(about.node);
+                }
+            }
+            console.log(abouts);
+            displayAbouts(abouts);
+        }
+});
 
 //import {awards} from '../award/app.js';
 
