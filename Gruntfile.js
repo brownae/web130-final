@@ -5,31 +5,31 @@ let babel = require('rollup-plugin-babel'),
     commonjs = require('rollup-plugin-commonjs'),
     includePaths = require('rollup-plugin-includepaths'),
     jsSrc = [
-        'client/js/*.js',
-        'client/js/**/*.js',
-        '!client/js/build/*.js'
+        'js/*.js',
+        'js/**/*.js',
+        '!js/build/*.js'
     ],
     jsMain = [
         // Main application files
-        'client/js/**/app.js',
-        '!client/js/build/*.js'
+        'js/main.js',
+        '!js/build/*.js'
     ],
     jsLibs = [
         'node_modules/jquery/dist/jquery.js',
         'node_modules/babel-polyfill/dist/polyfill.js',
         'node_modules/js-cookie/src/js.cookie.js',
-        'client/js/build/app.js'
+        'js/build/main.js'
     ],
     sassIncludes = [];
 
 module.exports = (grunt) => {
     grunt.initConfig({
         clean: {
-            js: 'client/js/build/*',
+            js: 'js/build/*',
             all: [
-                'client/js/build/*',
-                'client/css/main.css',
-                'client/css/main.css.map',
+                'js/build/*',
+                'css/main.css',
+                'css/main.css.map',
             ]
         },
         jshint: {
@@ -43,11 +43,11 @@ module.exports = (grunt) => {
         concat: {
             js: {
                 src: jsMain,
-                dest: 'client/js/build/temp.js'
+                dest: 'js/build/temp.js'
             },
             all: {
                 src: jsLibs,
-                dest: 'client/js/build/app.js'
+                dest: 'js/build/main.js'
             }
         },
         rollup: {
@@ -63,8 +63,8 @@ module.exports = (grunt) => {
                     }
                 },
                 files: [{
-                    src: 'client/js/build/temp.js',  // May only contain 1 src.
-                    dest: 'client/js/build/app.js',
+                    src: 'js/build/temp.js',  // May only contain 1 src.
+                    dest: 'js/build/main.js',
                 }]
             },
             build: {
@@ -81,8 +81,8 @@ module.exports = (grunt) => {
                     }
                 },
                 files: [{
-                    src: 'client/js/build/temp.js',  // May only contain 1 src.
-                    dest: 'client/js/build/app.js',
+                    src: 'js/build/temp.js',  // May only contain 1 src.
+                    dest: 'js/build/main.js',
                 }]
             }
 
@@ -95,7 +95,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'client/css/main.css': 'client/sass/main.sass'
+                    'css/main.css': 'sass/main.sass'
                 }
             },
             prod: {
@@ -105,7 +105,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'client/css/main.css': 'client/sass/main.sass'
+                    'css/main.css': 'sass/main.sass'
                 }
             }
         },
@@ -115,7 +115,7 @@ module.exports = (grunt) => {
                     livereload: true
                 },
                 files: [
-                    'client/js/build/app.js',
+                    'js/build/main.js',
                     'css/**/*.css',
                     '*.html'
                 ]
@@ -127,7 +127,7 @@ module.exports = (grunt) => {
             sass: {
                 tasks: ['sass:dev'],
                 files: [
-                    'client/sass/*'
+                    'sass/*'
                 ]
             }
         },
@@ -138,7 +138,7 @@ module.exports = (grunt) => {
             },
             app: {
                 files: {
-                    'client/js/build/app.min.js': 'client/js/build/app.js'
+                    'js/build/main.min.js': 'js/build/main.js'
                 }
             }
         }
