@@ -17192,6 +17192,46 @@ module.exports = _dereq_(23);
 	return init(function () {});
 }));
 
+// Awards table Start ///////////////
+
+let displayAwardsTable = (award) => {
+
+    let rows =
+    `<table>
+        <tr>
+            <th>Award Title</th>
+            <th>Img URL</th>
+            <th>From</th>
+            <th>Award src URL</th>
+            <th>Date Awarded</th>
+            <th>comments</th>
+
+        </tr>`;
+
+        awards.forEach(function(award) {
+        rows +=  `<tr>
+                <td>${award.awardTitle}</td>
+                <td>${award.imgName}</td>
+                <td>${award.awardFrom}</td>
+                <td>${award.awardSrcUrl}</td>
+                <td>${award.dateAwarded}</td>
+                <td>${award.comments}</td>
+                <td><a href="" id='${award.id}' >Update</a></td>
+        </tr>`;
+        });
+
+
+        rows += `</table>`;
+
+        // rows.before(tableHead).append(tableEnd).val();
+
+    $('#tableContent').append(rows);//loads what is requested
+
+};
+
+
+// Awards table End ///////////////
+
 //this is where I query the db and get the info and put it in a var
 
 // All awards
@@ -17222,12 +17262,14 @@ const getAllAwards = `
 
 let displayAwards = (awards) => {
     awards.forEach(function(award) {
-        console.log(award);
+        //console.log(award);
 
         const awardTemplate = `
             <article>
                 <div class="img-award">
-                    <img src="img/${award.imgName}" alt="${award.awardFrom}">
+                    <a href="${award.awardSrcUrl}">
+                        <img src="img/${award.imgName}" alt="${award.awardFrom}">
+                    </a>
                 </div>
                 <div class="content-award">
                     <h3><span>Award: </span>${award.awardTitle}</h3>
@@ -17246,6 +17288,55 @@ let displayAwards = (awards) => {
         // $elem.find('article').html(article.content);
 };
 
+//import {awards} from '../award/app.js';
+
+
+
+$("[name='page-select']").change(function(event){
+
+    console.log("selector changed!");
+    let value = $(this).val();
+switch(value) {
+    case 'about':
+        $('#tableContent').empty();//clears what was in div before
+        console.log("about block!");
+        break;
+    case 'awards':
+        $('#tableContent').empty();//clears what was in div before
+
+        $.ajax({
+                type: "POST",
+                url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                data: JSON.stringify({
+                    query: getAllAwards
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    awards = [];
+                    if (response.hasOwnProperty('data')) {
+                        let awardEdges = response.data.viewer.allAwards.edges;
+                        for (var award of awardEdges) {
+                            awards.push(award.node);
+                        }
+                    }
+                    //console.log(awards);
+                    displayAwardsTable(awards);
+                }
+        });
+
+        console.log(awards);
+        break;
+    case 'menu':
+        $('#tableContent').empty();//clears what was in div before
+        console.log("menu block!");
+        break;
+    default:
+        // code block
+
+}
+
+});
+
 $.ajax({
         type: "POST",
         url: "https://us-west-2.api.scaphold.io/graphql/canon",
@@ -17254,14 +17345,14 @@ $.ajax({
         }),
         contentType: 'application/json',
         success: function(response) {
-            let awards = [];
+            awards = [];
             if (response.hasOwnProperty('data')) {
                 let awardEdges = response.data.viewer.allAwards.edges;
                 for (var award of awardEdges) {
                     awards.push(award.node);
                 }
             }
-            console.log(awards);
+            //console.log(awards);
             displayAwards(awards);
         }
 });

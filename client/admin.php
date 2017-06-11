@@ -2,7 +2,7 @@
 <header>
     <img class="top-img" src="img/canon-seattle-about.jpg" alt="Canon Seattle bar">
     <div>
-        <h2>Login</h2>
+        <h2>Admin</h2>
     </div>
 </header>
 <main id="admin-page">
@@ -17,8 +17,8 @@
         </div>
     </form>
 
-    <div id="content">
-        <table>
+    <div id="tableContent">
+        <!-- <table>
             <tr>
                 <th>Award Title</th>
                 <th>Img URL</th>
@@ -36,7 +36,7 @@
                 <td>07/08/2017</td>
                 <td>A great thanks to James Beard Awards!</td>
             </tr>
-        </table>
+        </table> -->
         <!-- <form id="awards-update" action="" method="post">
             <div class="form-group">
                 <label for="imgUrl">Image URL</label>

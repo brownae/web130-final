@@ -4,12 +4,14 @@
 
 export let displayAwards = (awards) => {
     awards.forEach(function(award) {
-        console.log(award);
+        //console.log(award);
 
         const awardTemplate = `
             <article>
                 <div class="img-award">
-                    <img src="img/${award.imgName}" alt="${award.awardFrom}">
+                    <a href="${award.awardSrcUrl}">
+                        <img src="img/${award.imgName}" alt="${award.awardFrom}">
+                    </a>
                 </div>
                 <div class="content-award">
                     <h3><span>Award: </span>${award.awardTitle}</h3>

@@ -56,6 +56,7 @@
 
 </footer>
 <script src="js/build/app.js" charset="utf-8"></script>
+<script src="js/main.js" charset="utf-8"></script>
     </div> <!-- Close - div with id='wrapper' -->
 </body>
 </html>

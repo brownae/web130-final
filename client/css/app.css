@@ -318,6 +318,10 @@ article, form, table {
     width: 60%;
     margin: 15px; }
 
+main#awardsPage {
+  display: flex;
+  flex-direction: column-reverse; }
+
 form {
   flex-direction: column; }
   form input {

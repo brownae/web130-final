@@ -10,14 +10,14 @@ $.ajax({
         }),
         contentType: 'application/json',
         success: function(response) {
-            let awards = [];
+            awards = [];
             if (response.hasOwnProperty('data')) {
                 let awardEdges = response.data.viewer.allAwards.edges;
                 for (var award of awardEdges) {
                     awards.push(award.node);
                 }
             }
-            console.log(awards);
+            //console.log(awards);
             displayAwards(awards);
         }
 });
