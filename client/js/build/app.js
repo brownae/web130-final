@@ -17193,10 +17193,9 @@ module.exports = _dereq_(23);
 }));
 
 // Awards table Start ///////////////
-
+//the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
-
-    let rows =
+    let table =
     `<table>
         <tr>
             <th>Award Title</th>
@@ -17209,23 +17208,23 @@ let displayAwardsTable = (award) => {
         </tr>`;
 
         awards.forEach(function(award) {
-        rows +=  `<tr>
+        table +=  `<tr>
                 <td>${award.awardTitle}</td>
                 <td>${award.imgName}</td>
                 <td>${award.awardFrom}</td>
                 <td>${award.awardSrcUrl}</td>
                 <td>${award.dateAwarded}</td>
                 <td>${award.comments}</td>
-                <td><a href="" id='${award.id}' >Update</a></td>
+                <td><a href="" id='${award.id}' >Update</a>
+                <a href="" id='${award.id}' >Delete</a></td>
         </tr>`;
         });
 
+        table += `</table>
+        <button type="button" name="update-button" class='addEntry'>Add</button>
+        `;
 
-        rows += `</table>`;
-
-        // rows.before(tableHead).append(tableEnd).val();
-
-    $('#tableContent').append(rows);//loads what is requested
+    $('#tableContent').append(table);//loads what is requested
 
 };
 
@@ -17323,7 +17322,6 @@ switch(value) {
                     displayAwardsTable(awards);
                 }
         });
-
         console.log(awards);
         break;
     case 'menu':

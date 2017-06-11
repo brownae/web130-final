@@ -35,7 +35,6 @@ switch(value) {
                     displayAwardsTable(awards);
                 }
         });
-
         console.log(awards);
         break;
     case 'menu':

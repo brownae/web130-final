@@ -94,6 +94,31 @@ main#awardsPage
     display: flex
     flex-direction: column-reverse
 
+button
+    display: inline-block
+    height: 38px
+    padding: 0 30px
+    color: #555
+    text-align: center
+    font-size: 11px
+    font-weight: 600
+    line-height: 38px
+    letter-spacing: .1rem
+    text-transform: uppercase
+    text-decoration: none
+    white-space: nowrap
+    background-color: $white
+    border-radius: 4px
+    border: 1px solid #bbb
+    cursor: pointer
+    box-sizing: border-box
+    &:hover
+        background-color: $darkGrey
+        color: $white
+    &.addEntry
+        margin: 20px
+
+
 form
     @extend article
     flex-direction: column
@@ -106,24 +131,6 @@ form
         border-style: none
         padding-left: 20px
 
-    button
-        display: inline-block
-        height: 38px
-        padding: 0 30px
-        color: #555
-        text-align: center
-        font-size: 11px
-        font-weight: 600
-        line-height: 38px
-        letter-spacing: .1rem
-        text-transform: uppercase
-        text-decoration: none
-        white-space: nowrap
-        background-color: transparent
-        border-radius: 4px
-        border: 1px solid #bbb
-        cursor: pointer
-        box-sizing: border-box
 
 div.form-group
     display: block
@@ -139,20 +146,24 @@ div.form-group
 table
     @extend article
     background-color: $white
+    font-size: 13px
 
     th,td
         padding: 12px 15px
         text-align: left
         border-bottom: 1px solid #E1E1E1
 
-    th:first-child, td:first-child
+    //th:first-child, td:first-child
         padding-left: 0
 
-    th:last-child, td:last-child
+    //th:last-child, td:last-child
         padding-right: 0
     th
         font-family: $serifFont
         font-weight: 600
+    td
+        a
+            color: $blue
 
 
 footer
