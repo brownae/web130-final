@@ -63,11 +63,15 @@ article
     background: $offWhite
     color: $black
     padding: 20px
-    width: 90%
+    width: 80%
     margin: 20px auto
     overflow: auto
     display: flex
-    flex-direction: row
+    flex-direction: column
+    @include tablet
+        flex-direction: row
+    @include desktop
+        flex-direction: row
 
     h3 span, h4 span
         font-family: $serifFont
@@ -75,22 +79,45 @@ article
         font-size: 1.2em
 
     .img-award
-        width: 30%
+        width: 50%
+        margin: auto
+        @include tablet
+            width: 30%
+        @include desktop
+            width: 30%
 
     .img-about
-        width: 40%
+        width: 80%
+        margin: 15px auto
+        @include tablet
+            width: 30%
+            margin-right: 20px
+        @include desktop
+            width: 30%
+            margin-right: 20px
 
 
     .content-award
-        width: 70%
+        width: 100%
         margin: auto 0
-        margin-left: 15px
+        @include tablet
+            width: 70%
+        @include desktop
+            width: 70%
 
     .content-about
-        width: 60%
-        margin: 15px
+        width: 100%
+        margin: auto 0
+        @include tablet
+            width: 70%
+        @include desktop
+            width: 70%
 
 main#awardsPage
+    display: flex
+    flex-direction: column-reverse
+    
+main#aboutPage
     display: flex
     flex-direction: column-reverse
 

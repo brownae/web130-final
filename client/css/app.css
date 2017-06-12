@@ -297,28 +297,65 @@ article, form, table {
   background: #fffdf2;
   color: #000000;
   padding: 20px;
-  width: 90%;
+  width: 80%;
   margin: 20px auto;
   overflow: auto;
   display: flex;
-  flex-direction: row; }
+  flex-direction: column; }
+  @media (min-width: 480px) and (max-width: 899px) {
+    article, form, table {
+      flex-direction: row; } }
+  @media (min-width: 900px) {
+    article, form, table {
+      flex-direction: row; } }
   article h3 span, form h3 span, table h3 span, article h4 span, form h4 span, table h4 span {
     font-family: "Inconsolata", monospace;
     font-weight: 700;
     font-size: 1.2em; }
   article .img-award, form .img-award, table .img-award {
-    width: 30%; }
+    width: 50%;
+    margin: auto; }
+    @media (min-width: 480px) and (max-width: 899px) {
+      article .img-award, form .img-award, table .img-award {
+        width: 30%; } }
+    @media (min-width: 900px) {
+      article .img-award, form .img-award, table .img-award {
+        width: 30%; } }
   article .img-about, form .img-about, table .img-about {
-    width: 40%; }
+    width: 80%;
+    margin: 15px auto; }
+    @media (min-width: 480px) and (max-width: 899px) {
+      article .img-about, form .img-about, table .img-about {
+        width: 30%;
+        margin-right: 20px; } }
+    @media (min-width: 900px) {
+      article .img-about, form .img-about, table .img-about {
+        width: 30%;
+        margin-right: 20px; } }
   article .content-award, form .content-award, table .content-award {
-    width: 70%;
-    margin: auto 0;
-    margin-left: 15px; }
+    width: 100%;
+    margin: auto 0; }
+    @media (min-width: 480px) and (max-width: 899px) {
+      article .content-award, form .content-award, table .content-award {
+        width: 70%; } }
+    @media (min-width: 900px) {
+      article .content-award, form .content-award, table .content-award {
+        width: 70%; } }
   article .content-about, form .content-about, table .content-about {
-    width: 60%;
-    margin: 15px; }
+    width: 100%;
+    margin: auto 0; }
+    @media (min-width: 480px) and (max-width: 899px) {
+      article .content-about, form .content-about, table .content-about {
+        width: 70%; } }
+    @media (min-width: 900px) {
+      article .content-about, form .content-about, table .content-about {
+        width: 70%; } }
 
 main#awardsPage {
+  display: flex;
+  flex-direction: column-reverse; }
+
+main#aboutPage {
   display: flex;
   flex-direction: column-reverse; }
 
