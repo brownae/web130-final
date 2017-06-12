@@ -24,10 +24,10 @@
                             </li>
                             <li>
                                 <a href="#!">Menu &#9662;</a>
-                                <ul class="nav-dropdown">
-                                    <li><a href="#!">Food</a></li>
-                                    <li><a href="#!">Cocktails</a></li>
-                                    <li><a href="#!">Bottle library</a></li>
+                                <ul class="nav-dropdown menus">
+                                    <!-- <li><a class='food' href="">Food</a></li>
+                                    <li><a class='cocktail' href="">Cocktails</a></li>
+                                    <li><a class='bottle' href="#!">Bottle library</a></li> -->
                                 </ul>
                             </li>
                             <li>

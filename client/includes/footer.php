@@ -8,11 +8,11 @@
                 <li><a href="#">Reservations</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Menu</a></li>
-                <ul>
-                    <li><a href="#">Food</a></li>
-                    <li><a href="#">Cocktails</a></li>
-                    <li><a href="#">Bottle Library</a></li>
-                </ul>
+                    <ul class="menus">
+                        <!-- <li><a href="">Food</a></li>
+                        <li><a class='cocktail' href="">Cocktails</a></li>
+                        <li><a class='bottle' href="#!">Bottle library</a></li> -->
+                    </ul>
                 <li><a href="awards.php">Awards</a></li>
                 <li><a href="#">Book</a></li>
                 <li><a href="about.php">About</a></li>

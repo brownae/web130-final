@@ -17338,6 +17338,110 @@ let displayAwards = (awards) => {
         // $elem.find('article').html(article.content);
 };
 
+// Login query
+const loginUser = `
+    mutation loginUserQuery($input: LoginUserInput!) {
+        loginUser(input: $input) {
+            token
+            user {
+                id
+                username
+                name
+            }
+        }
+    }`;
+
+let loginData = (username, password) => {
+    return {
+        "input": {
+            "username": username,
+            "password": password
+        }
+    };
+};
+
+let processLogin = (user, token) => {
+    // Set session cookie
+    Cookies.set('userId', user.id);
+    Cookies.set('userName', user.name);
+    Cookies.set('token', token);
+    // For debugging purposes
+    console.log('userId - ' + user.id);
+    console.log('userName - ' + user.name);
+    console.log('token - ' + token);
+
+    window.location = createUrl();
+};
+
+let createUrl = () => {
+    return window.location.href.replace('/login.php', '/admin.php');
+};
+
+$('#login-button').on('click', (event) => {
+    // Don't actually submit form
+    event.preventDefault();
+
+    let username = $('input[name="username"]').val(),
+        password = $('input[name="password"]').val(),
+        data = loginData(username, password);
+
+    $.ajax({
+        type: "POST",
+        url: "https://us-west-2.api.scaphold.io/graphql/canon",
+        data: JSON.stringify({
+            query: loginUser,
+            variables: data
+        }),
+        contentType: 'application/json',
+        success: function(response) {
+            if (response.hasOwnProperty('errors')) {
+                alert(response.errors[0].message);
+            } else if (response.hasOwnProperty('data')) {
+                let loginUser$$1 = response.data.loginUser,
+                    token = loginUser$$1.token,
+                    user = loginUser$$1.user;
+                processLogin(user, token);
+            }
+        }
+    });
+});
+
+//this is where I query the db and get the info and put it in a var
+
+// All menus
+const getAllMenus = `
+    query getAllmenus {
+        viewer {
+            allMenus{
+                edges {
+                    node {
+                        id
+                        modifiedAt
+                        createdAt
+                        bottlesUrl
+                        foodUrl
+                        cocktailsUrl
+                    }
+                }
+            }
+        }
+    }`;
+
+let displayMenus = (menus) => {
+    menus.forEach(function(menu) {
+        console.log(menu);
+
+        const menuTemplate = `
+            <li><a href="${menu.foodUrl}"  target="_blank" >Food</a></li>
+            <li><a href="${menu.cocktailsUrl}"  target="_blank" >Cocktails</a></li>
+            <li><a href="${menu.bottlesUrl}"  target="_blank" >Bottles</a></li>
+        `;
+
+        $('.menus').append(menuTemplate);
+    });
+
+};
+
 $.ajax({
         type: "POST",
         url: "https://us-west-2.api.scaphold.io/graphql/canon",
@@ -17423,6 +17527,26 @@ $.ajax({
             }
             //console.log(awards);
             displayAwards(awards);
+        }
+});
+
+$.ajax({
+        type: "POST",
+        url: "https://us-west-2.api.scaphold.io/graphql/canon",
+        data: JSON.stringify({
+            query: getAllMenus
+        }),
+        contentType: 'application/json',
+        success: function(response) {
+            menus = [];
+            if (response.hasOwnProperty('data')) {
+                let menuEdges = response.data.viewer.allMenus.edges;
+                for (var menu of menuEdges) {
+                    menus.push(menu.node);
+                }
+            }
+            console.log(menus);
+            displayMenus(menus);
         }
 });
 
