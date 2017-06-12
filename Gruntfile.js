@@ -12,6 +12,7 @@ let babel = require('rollup-plugin-babel'),
     jsMain = [
         // Main application files
         'client/js/**/app.js',
+        'client/js/nav.js',
         '!client/js/build/*.js'
     ],
     jsLibs = [
