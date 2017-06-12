@@ -9,9 +9,7 @@
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Menu</a></li>
                     <ul class="menus">
-                        <!-- <li><a href="">Food</a></li>
-                        <li><a class='cocktail' href="">Cocktails</a></li>
-                        <li><a class='bottle' href="#!">Bottle library</a></li> -->
+                        <!-- ajax query will populate here -->
                     </ul>
                 <li><a href="awards.php">Awards</a></li>
                 <li><a href="#">Book</a></li>
