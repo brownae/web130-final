@@ -5,9 +5,9 @@
         <h2>About</h2>
     </div>
 </header>
-
-<main id="aboutPage">
     <h2>A little about us...</h2>
+<main id="aboutPage">
+
     <!-- <article>
         <div class="img-about">
             <img src="img/jaime-boudreau.jpg" alt="Jaime boudreau Canon owner">
