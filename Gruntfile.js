@@ -5,31 +5,32 @@ let babel = require('rollup-plugin-babel'),
     commonjs = require('rollup-plugin-commonjs'),
     includePaths = require('rollup-plugin-includepaths'),
     jsSrc = [
-        'js/*.js',
-        'js/**/*.js',
-        '!js/build/*.js'
+        'client/js/*.js',
+        'client/js/**/*.js',
+        '!client/js/build/*.js'
     ],
     jsMain = [
         // Main application files
-        'js/main.js',
-        '!js/build/*.js'
+        'client/js/**/app.js',
+        'client/js/nav.js',
+        '!client/js/build/*.js'
     ],
     jsLibs = [
         'node_modules/jquery/dist/jquery.js',
         'node_modules/babel-polyfill/dist/polyfill.js',
         'node_modules/js-cookie/src/js.cookie.js',
-        'js/build/main.js'
+        'client/js/build/app.js' // Rolled up source file.
     ],
     sassIncludes = [];
 
 module.exports = (grunt) => {
     grunt.initConfig({
         clean: {
-            js: 'js/build/*',
+            js: 'client/js/build/*',
             all: [
-                'js/build/*',
-                'css/main.css',
-                'css/main.css.map',
+                'client/js/build/*',
+                'client/css/app.css',
+                'client/css/app.min.css'
             ]
         },
         jshint: {
@@ -43,11 +44,11 @@ module.exports = (grunt) => {
         concat: {
             js: {
                 src: jsMain,
-                dest: 'js/build/temp.js'
+                dest: 'client/js/build/temp.js'
             },
             all: {
                 src: jsLibs,
-                dest: 'js/build/main.js'
+                dest: 'client/js/build/app.js'
             }
         },
         rollup: {
@@ -63,8 +64,8 @@ module.exports = (grunt) => {
                     }
                 },
                 files: [{
-                    src: 'js/build/temp.js',  // May only contain 1 src.
-                    dest: 'js/build/main.js',
+                    src: 'client/js/build/temp.js',  // May only contain 1 src.
+                    dest: 'client/js/build/app.js',
                 }]
             },
             build: {
@@ -81,8 +82,8 @@ module.exports = (grunt) => {
                     }
                 },
                 files: [{
-                    src: 'js/build/temp.js',  // May only contain 1 src.
-                    dest: 'js/build/main.js',
+                    src: 'client/js/build/temp.js',  // May only contain 1 src.
+                    dest: 'client/js/build/app.js',
                 }]
             }
 
@@ -95,7 +96,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'css/main.css': 'sass/main.sass'
+                    'client/css/app.css': 'client/sass/app.sass'
                 }
             },
             prod: {
@@ -105,7 +106,7 @@ module.exports = (grunt) => {
                     includePaths: sassIncludes
                 },
                 files: {
-                    'css/main.css': 'sass/main.sass'
+                    'client/css/app.css': 'client/sass/app.sass'
                 }
             }
         },
@@ -115,7 +116,7 @@ module.exports = (grunt) => {
                     livereload: true
                 },
                 files: [
-                    'js/build/main.js',
+                    'client/js/build/app.js',
                     'css/**/*.css',
                     '*.html'
                 ]
@@ -127,7 +128,7 @@ module.exports = (grunt) => {
             sass: {
                 tasks: ['sass:dev'],
                 files: [
-                    'sass/*'
+                    'client/sass/*'
                 ]
             }
         },
@@ -138,7 +139,7 @@ module.exports = (grunt) => {
             },
             app: {
                 files: {
-                    'js/build/main.min.js': 'js/build/main.js'
+                    'client/js/build/app.min.js': 'client/js/build/app.js'
                 }
             }
         }
@@ -151,7 +152,6 @@ module.exports = (grunt) => {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rollup');
-    grunt.loadNpmTasks('grunt-newer');
     grunt.registerTask('dev',
         "Join and rollup all the ES6, but don't transpile.",
         ['jshint:all', 'clean:js', 'concat:js', 'rollup:dev', 'concat:all']
