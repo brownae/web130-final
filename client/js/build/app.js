@@ -17246,23 +17246,18 @@ abouts.forEach(function(about) {
 // queries for the admin section are currently being pulled in from the model of their section
 
 //make this create about
-
-//this is where I query the db and get the info and put it in a var
-
-// All menus
-const getAllMenus = `
-    query getAllmenus {
-        viewer {
-            allMenus{
-                edges {
-                    node {
-                        id
-                        modifiedAt
-                        createdAt
-                        bottlesUrl
-                        foodUrl
-                        cocktailsUrl
-                    }
+const createAbout = `
+    mutation createAboutQuery($input: CreateAboutInput!) {
+        createAbout(input: $input) {
+            changedAbout {
+                id
+                modifiedAt
+                createdAt
+                content
+                displayOrder
+                title
+                name
+                imgName
                 }
             }
         }
@@ -17320,7 +17315,6 @@ let displayAboutsTable = (about) => {
         </tr>`;
 
         abouts.forEach(function(about) {
-                console.log(about);
         table +=  `<tr>
                 <td>${about.displayOrder}</td>
                 <td>${about.name}</td>
@@ -17334,7 +17328,7 @@ let displayAboutsTable = (about) => {
 
         table += `</table>
         <div id='admin-button'>
-        <button type="button" name="update-button" class='addEntry'>Add</button>
+        <button type="button" name="add-about-form" id="add-about-form" class='addEntry' >Add</button>
         <div>
         `;
 
@@ -17376,7 +17370,44 @@ let displayMenuForm = (menu) => {
 // menu form End ///////////////
 
 // About form Start ///////////////
+let displayAboutForm = () => {
 
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="displayOrder">Display Order</label>
+                    <input type="url" class="form-control" id="displayOrder" name="displayOrder" placeholder="(Number)">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Persons Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Title - 'i.e. Chef... Manager">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input type="url" class="form-control" id="content" name="content" placeholder="Content...">
+                </div>
+
+                <div class="form-group">
+                    <label for="imgName">Image Name</label>
+                    <input type="url" class="form-control" id="imgName" name="imgName" placeholder="john-johnson.jpg">
+                </div>
+
+                <div class="form-group">
+                    <button id="create-about-button" type="button">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+
+
+};
 // About form END ///////////////
 
 //this is where I query the db and get the info and put it in a var
@@ -17495,6 +17526,27 @@ $('#login-button').on('click', (event) => {
     });
 });
 
+//this is where I query the db and get the info and put it in a var
+
+// All menus
+const getAllMenus = `
+    query getAllmenus {
+        viewer {
+            allMenus{
+                edges {
+                    node {
+                        id
+                        modifiedAt
+                        createdAt
+                        bottlesUrl
+                        foodUrl
+                        cocktailsUrl
+                    }
+                }
+            }
+        }
+    }`;
+
 let displayMenus = (menus) => {
     menus.forEach(function(menu) {
         console.log(menu);
@@ -17530,91 +17582,137 @@ $.ajax({
         }
 });
 
-//import {awards} from '../award/app.js';
-
-
-
 $("[name='page-select']").change(function(event){
 
-    console.log("selector changed!");
     let value = $(this).val();
-switch(value) {
-    case 'about':
-        $('#tableContent').empty();//clears what was in div before
-        console.log("about block!");
-        $.ajax({
-                type: "POST",
-                url: "https://us-west-2.api.scaphold.io/graphql/canon",
-                data: JSON.stringify({
-                    query: getAllAbouts
-                }),
-                contentType: 'application/json',
-                success: function(response) {
-                    abouts = [];
-                    if (response.hasOwnProperty('data')) {
-                        let aboutEdges = response.data.viewer.allAbouts.edges;
-                        for (var about of aboutEdges) {
-                            abouts.push(about.node);
+
+    switch(value) {
+        case 'about':
+            $('#tableContent').empty();//clears what was in div before
+            $.ajax({
+                    type: "POST",
+                    url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                    data: JSON.stringify({
+                        query: getAllAbouts
+                    }),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        abouts = [];
+                        if (response.hasOwnProperty('data')) {
+                            let aboutEdges = response.data.viewer.allAbouts.edges;
+                            for (var about of aboutEdges) {
+                                abouts.push(about.node);
+                            }
                         }
+                        displayAboutsTable(abouts);
                     }
-                    displayAboutsTable(abouts);
-                }
-        });
-        break;
-    case 'awards':
-        $('#tableContent').empty();//clears what was in div before
+            });
+            break;
+        case 'awards':
+            $('#tableContent').empty();//clears what was in div before
 
-        $.ajax({
-                type: "POST",
-                url: "https://us-west-2.api.scaphold.io/graphql/canon",
-                data: JSON.stringify({
-                    query: getAllAwards
-                }),
-                contentType: 'application/json',
-                success: function(response) {
-                    awards = [];
-                    if (response.hasOwnProperty('data')) {
-                        let awardEdges = response.data.viewer.allAwards.edges;
-                        for (var award of awardEdges) {
-                            awards.push(award.node);
+            $.ajax({
+                    type: "POST",
+                    url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                    data: JSON.stringify({
+                        query: getAllAwards
+                    }),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        awards = [];
+                        if (response.hasOwnProperty('data')) {
+                            let awardEdges = response.data.viewer.allAwards.edges;
+                            for (var award of awardEdges) {
+                                awards.push(award.node);
+                            }
                         }
+                        //console.log(awards);
+                        displayAwardsTable(awards);
                     }
-                    //console.log(awards);
-                    displayAwardsTable(awards);
-                }
-        });
-        break;
-    case 'menu':
-        $('#tableContent').empty();//clears what was in div before
-        console.log("menu block!");
+            });
+            break;
+        case 'menu':
+            $('#tableContent').empty();//clears what was in div before
 
-        $.ajax({
-                type: "POST",
-                url: "https://us-west-2.api.scaphold.io/graphql/canon",
-                data: JSON.stringify({
-                    query: getAllMenus
-                }),
-                contentType: 'application/json',
-                success: function(response) {
-                    menus = [];
-                    if (response.hasOwnProperty('data')) {
-                        let menuEdges = response.data.viewer.allMenus.edges;
-                        for (var menu of menuEdges) {
-                            menus.push(menu.node);
+            $.ajax({
+                    type: "POST",
+                    url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                    data: JSON.stringify({
+                        query: getAllMenus
+                    }),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        menus = [];
+                        if (response.hasOwnProperty('data')) {
+                            let menuEdges = response.data.viewer.allMenus.edges;
+                            for (var menu of menuEdges) {
+                                menus.push(menu.node);
+                            }
                         }
+                        //console.log(menus);
+                        displayMenuForm(menus);
                     }
-                    //console.log(menus);
-                    displayMenuForm(menus);
-                }
-        });
+            });
 
-        break;
-    default:
-        $('#tableContent').empty();//clears what was in div before
-        // code block
+            break;
+        default:
+            $('#tableContent').empty();//clears what was in div before
+            // code block
 
-}
+    }
 
+});
+
+$(document).on('click', "#add-about-form", function() {
+    displayAboutForm();
+});
+
+
+let createInput = (displayOrder, name, title, imgName) => {
+    return {
+        "input": {
+            "id": Cookies.get('userId'),
+            "displayOrder": displayOrder,
+            "name": name,
+            "title": title,
+            "imgName": imgName
+        }
+    };
+};
+
+$(document).on('click', '#create-about-button', function() {
+    // event.preventDefault();
+
+    let displayOrder = $('#displayOrder').val(),
+        name = $('#name').val(),
+        title = $('#title').val(),
+        imgName = $('#imgName').val(),
+        data = createInput(displayOrder, name, title, imgName);
+
+    $.ajax({
+        type: "POST",
+        url: "https://us-west-2.api.scaphold.io/graphql/canon",
+        data: JSON.stringify({
+            query: createAbout,
+            variables: data
+        }),
+        contentType: 'application/json',
+        headers: {
+            'Authorization': 'Bearer ' + Cookies.get('token')
+        },
+        success: function(response) {
+            if (response.hasOwnProperty('data')) {
+                alert('You created a new about section!');
+                $('form')[0].reset();
+            }
+        },
+        error: function(xhr, status, response) {
+            console.log(response);
+            if (response.hasOwnProperty('errors')) {
+                alert(response.errors[0].message);
+            }
+        }
+    });
 });
 
 $.ajax({
