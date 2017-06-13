@@ -114,7 +114,6 @@ $(document).on('click', "#add-about-form", function() {
 let createInput = (displayOrder, name, title, imgName) => {
     return {
         "input": {
-            "id": Cookies.get('userId'),
             "displayOrder": displayOrder,
             "name": name,
             "title": title,

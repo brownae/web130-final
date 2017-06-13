@@ -13,7 +13,6 @@ export const createAbout = `
                 title
                 name
                 imgName
-                }
             }
         }
     }`;
