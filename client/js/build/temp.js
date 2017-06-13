@@ -24,8 +24,10 @@ $.ajax({
 
 import '../admin/model.js';
 import '../about/model.js';
+import '../menu/model.js';
 import {displayAwardsTable} from '../admin/view.js';
 import {displayAboutsTable} from '../admin/view.js';
+import {displayMenuForm} from '../admin/view.js';
 //import {awards} from '../award/app.js';
 
 
@@ -83,8 +85,30 @@ switch(value) {
     case 'menu':
         $('#tableContent').empty();//clears what was in div before
         console.log("menu block!");
+
+        $.ajax({
+                type: "POST",
+                url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                data: JSON.stringify({
+                    query: getAllMenus
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    menus = [];
+                    if (response.hasOwnProperty('data')) {
+                        let menuEdges = response.data.viewer.allMenus.edges;
+                        for (var menu of menuEdges) {
+                            menus.push(menu.node);
+                        }
+                    }
+                    //console.log(menus);
+                    displayMenuForm(menus);
+                }
+        });
+
         break;
     default:
+        $('#tableContent').empty();//clears what was in div before
         // code block
 
 }

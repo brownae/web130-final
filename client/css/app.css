@@ -380,8 +380,11 @@ button {
   button:hover {
     background-color: #3f3f3f;
     color: #fff; }
-  button.addEntry {
-    margin: 20px; }
+
+#admin-button {
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto; }
 
 form {
   flex-direction: column; }

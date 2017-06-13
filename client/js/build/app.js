@@ -17245,6 +17245,27 @@ abouts.forEach(function(about) {
 
 // queries for the admin section are currently being pulled in from the model of their section
 
+//this is where I query the db and get the info and put it in a var
+
+// All menus
+const getAllMenus = `
+    query getAllmenus {
+        viewer {
+            allMenus{
+                edges {
+                    node {
+                        id
+                        modifiedAt
+                        createdAt
+                        bottlesUrl
+                        foodUrl
+                        cocktailsUrl
+                    }
+                }
+            }
+        }
+    }`;
+
 // Awards table Start ///////////////
 //the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
@@ -17274,7 +17295,9 @@ let displayAwardsTable = (award) => {
         });
 
         table += `</table>
+        <div id='admin-button'>
         <button type="button" name="update-button" class='addEntry'>Add</button>
+        <div>
         `;
 
     $('#tableContent').append(table);//loads what is requested
@@ -17308,7 +17331,9 @@ let displayAboutsTable = (about) => {
         });
 
         table += `</table>
+        <div id='admin-button'>
         <button type="button" name="update-button" class='addEntry'>Add</button>
+        <div>
         `;
 
     $('#tableContent').append(table);//loads what is requested
@@ -17316,6 +17341,38 @@ let displayAboutsTable = (about) => {
 };
 
 // About table End ///////////////
+// menu form Start ///////////////
+let displayMenuForm = (menu) => {
+    menus.forEach(function(menu) {
+
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="foodMenu">Food Menu</label>
+                    <input type="url" class="form-control" id="foodMenu" name="foodMenu" value="${menu.foodUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="cocktailMenu">Cocktail Menu</label>
+                    <input type="url" class="form-control" id="cocktailMenu" name="cocktailMenu" value="${menu.cocktailsUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="bottleList">Bottle List</label>
+                    <input type="url" class="form-control" id="bottleList" name="bottleList" value="${menu.bottlesUrl}">
+                </div>
+
+                <div class="form-group">
+                    <button id="update-menu-button" type="submit" class="">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+});
+
+};
+
+// menu form End ///////////////
 
 //this is where I query the db and get the info and put it in a var
 
@@ -17441,27 +17498,6 @@ $('#login-button').on('click', (event) => {
     });
 });
 
-//this is where I query the db and get the info and put it in a var
-
-// All menus
-const getAllMenus = `
-    query getAllmenus {
-        viewer {
-            allMenus{
-                edges {
-                    node {
-                        id
-                        modifiedAt
-                        createdAt
-                        bottlesUrl
-                        foodUrl
-                        cocktailsUrl
-                    }
-                }
-            }
-        }
-    }`;
-
 let displayMenus = (menus) => {
     menus.forEach(function(menu) {
         console.log(menu);
@@ -17554,8 +17590,30 @@ switch(value) {
     case 'menu':
         $('#tableContent').empty();//clears what was in div before
         console.log("menu block!");
+
+        $.ajax({
+                type: "POST",
+                url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                data: JSON.stringify({
+                    query: getAllMenus
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    menus = [];
+                    if (response.hasOwnProperty('data')) {
+                        let menuEdges = response.data.viewer.allMenus.edges;
+                        for (var menu of menuEdges) {
+                            menus.push(menu.node);
+                        }
+                    }
+                    //console.log(menus);
+                    displayMenuForm(menus);
+                }
+        });
+
         break;
     default:
+        $('#tableContent').empty();//clears what was in div before
         // code block
 
 }
