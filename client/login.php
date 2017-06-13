@@ -8,8 +8,8 @@
 <main id="login">
     <form action="#" method="post" class="">
         <div class="form-group">
-            <label for="username">Email address</label>
-            <input type="email" class="form-control" id="username" name="username" placeholder="Email">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
         </div>
 
         <div class="form-group">
