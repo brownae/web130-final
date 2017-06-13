@@ -25,7 +25,5 @@ export let displayAwards = (awards) => {
 
         $('#awardsPage').append(awardTemplate);
     });
-        // $elem = $('#article-'+ (i + 1));
-        // $elem.find('h1, h2').html(article.title);
-        // $elem.find('article').html(article.content);
+    
 };

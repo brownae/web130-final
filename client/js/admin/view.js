@@ -29,7 +29,7 @@ export let displayAwardsTable = (award) => {
 
         table += `</table>
         <div id='admin-button'>
-        <button type="button" name="update-button" class='addEntry'>Add</button>
+        <button type='button' name='update-button' id='add-award-form' class='addEntry'>Add</button>
         <div>
         `;
 
@@ -37,6 +37,53 @@ export let displayAwardsTable = (award) => {
 
 };
 // Awards table End ///////////////
+// Awards form Start ///////////////
+export let displayAwardsForm = () => {
+
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="imgName">Name of img</label>
+                    <input type="text" class="form-control" id="imgName" name="imgName" placeholder="example: beard-award-logo.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardTitle">Award title</label>
+                    <input type="text" class="form-control" id="awardTitle" name="awardTitle" placeholder="example: Best Cocktail Bar in the World">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardFrom">Award from</label>
+                    <input type="text" class="form-control" id="awardFrom" name="awardFrom" placeholder="example: James Beard Foundation">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardSrcUrl">Url of award page</label>
+                    <input type="url" class="form-control" id="awardSrcUrl" name="awardSrcUrl" placeholder="example: https://www.jamesbeardfoundation.com/awardPage">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateAwarded">Date awarded</label>
+                    <input type="date" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="mm/dd/yyyy">
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <input type="text" class="form-control" id="comments" name="comments" placeholder="Comments">
+                </div>
+
+                <div class="form-group">
+                    <button id="create-award-button" type="button">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+
+
+};
+// Awards form End ///////////////
+
+
 
 // About table Start ///////////////
 export let displayAboutsTable = (about) => {
@@ -71,40 +118,7 @@ export let displayAboutsTable = (about) => {
     $('#tableContent').append(table);//loads what is requested
 
 };
-
 // About table End ///////////////
-// menu form Start ///////////////
-export let displayMenuForm = (menu) => {
-    menus.forEach(function(menu) {
-
-        let form = `
-            <form action="#" method="post" class="">
-                <div class="form-group">
-                    <label for="foodMenu">Food Menu</label>
-                    <input type="url" class="form-control" id="foodMenu" name="foodMenu" value="${menu.foodUrl}">
-                </div>
-
-                <div class="form-group">
-                    <label for="cocktailMenu">Cocktail Menu</label>
-                    <input type="url" class="form-control" id="cocktailMenu" name="cocktailMenu" value="${menu.cocktailsUrl}">
-                </div>
-
-                <div class="form-group">
-                    <label for="bottleList">Bottle List</label>
-                    <input type="url" class="form-control" id="bottleList" name="bottleList" value="${menu.bottlesUrl}">
-                </div>
-
-                <div class="form-group">
-                    <button id="update-menu-button" type="submit" class="">Update</button>
-                </div>
-            </form>`;
-
-    $('#tableContent').append(form);//loads what is requested
-    });
-};
-
-// menu form End ///////////////
-
 // About form Start ///////////////
 export let displayAboutForm = () => {
 
@@ -145,3 +159,35 @@ export let displayAboutForm = () => {
 
 };
 // About form END ///////////////
+
+
+// menu form Start ///////////////
+export let displayMenuForm = (menu) => {
+    menus.forEach(function(menu) {
+
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="foodMenu">Food Menu</label>
+                    <input type="url" class="form-control" id="foodMenu" name="foodMenu" value="${menu.foodUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="cocktailMenu">Cocktail Menu</label>
+                    <input type="url" class="form-control" id="cocktailMenu" name="cocktailMenu" value="${menu.cocktailsUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="bottleList">Bottle List</label>
+                    <input type="url" class="form-control" id="bottleList" name="bottleList" value="${menu.bottlesUrl}">
+                </div>
+
+                <div class="form-group">
+                    <button id="update-menu-button" type="submit" class="">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+    });
+};
+// menu form End ///////////////

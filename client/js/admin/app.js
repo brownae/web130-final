@@ -1,5 +1,5 @@
-import { createAbout } from '../admin/model.js';
-import {displayAwardsTable, displayAboutsTable, displayMenuForm, displayAboutForm } from '../admin/view.js';
+import { createAbout, createAward } from '../admin/model.js';
+import {displayAwardsTable, displayAboutsTable, displayMenuForm, displayAboutForm, displayAwardsForm } from '../admin/view.js';
 
 $("[name='page-select']").change(function(event){
 
@@ -82,11 +82,16 @@ $("[name='page-select']").change(function(event){
 
 });
 
+// this pops down the form to add a new about article
 $(document).on('click', "#add-about-form", function() {
     displayAboutForm();
 });
+// this pops down the form to add a new award
+$(document).on('click', "#add-award-form", function() {
+    displayAwardsForm();
+});
 
-
+//create a new about article Start
 let createInput = (displayOrder, name, title, imgName) => {
     return {
         "input": {
@@ -99,7 +104,6 @@ let createInput = (displayOrder, name, title, imgName) => {
 };
 
 $(document).on('click', '#create-about-button', function() {
-    // event.preventDefault();
 
     let displayOrder = $('#displayOrder').val(),
         name = $('#name').val(),
@@ -132,3 +136,58 @@ $(document).on('click', '#create-about-button', function() {
         }
     });
 });
+//create a new about article End
+createNewAward();
+
+function createNewAward(){
+//create a new award article Start
+    let createInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
+        return {
+            "input": {
+                "imgName": imgName,
+                "awardTitle": awardTitle,
+                "awardFrom": awardFrom,
+                "awardSrcUrl": awardSrcUrl,
+                "dateAwarded": dateAwarded,
+                "comments": comments
+            }
+        };
+    };
+
+    $(document).on('click', '#create-award-button', function() {
+
+        let imgName = $('#imgName').val(),
+            awardTitle = $('#awardTitle').val(),
+            awardFrom = $('#awardFrom').val(),
+            awardSrcUrl = $('#awardSrcUrl').val(),
+            dateAwarded = $('#dateAwarded').val(),
+            comments = $('#comments').val(),
+            data = createInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
+
+        $.ajax({
+            type: "POST",
+            url: "https://us-west-2.api.scaphold.io/graphql/canon",
+            data: JSON.stringify({
+                query: createAward,
+                variables: data
+            }),
+            contentType: 'application/json',
+            headers: {
+                'Authorization': 'Bearer ' + Cookies.get('token')
+            },
+            success: function(response) {
+                if (response.hasOwnProperty('data')) {
+                    alert('You created a new about section!');
+                    $('form')[0].reset();
+                }
+            },
+            error: function(xhr, status, response) {
+                console.log(response);
+                if (response.hasOwnProperty('errors')) {
+                    alert(response.errors[0].message);
+                }
+            }
+        });
+    });
+}
+//create a new award article End

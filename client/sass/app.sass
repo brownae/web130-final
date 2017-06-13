@@ -79,12 +79,8 @@ article
         font-size: 1.2em
 
     .img-award
+        @extend .img-about
         width: 50%
-        margin: auto
-        @include tablet
-            width: 30%
-        @include desktop
-            width: 30%
 
     .img-about
         width: 80%
@@ -115,7 +111,7 @@ article
 
 main#awardsPage
     display: flex
-    flex-direction: column-reverse
+    flex-direction: column
 
 main#aboutPage
     display: flex

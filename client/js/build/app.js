@@ -17262,6 +17262,24 @@ const createAbout = `
         }
     }`;
 
+//make this create new award
+const createAward = `
+    mutation createAwardQuery($input: CreateAwardInput!) {
+        createAward(input: $input) {
+            changedAward {
+                id
+                modifiedAt
+                createdAt
+                imgName
+                awardTitle
+                awardFrom
+                awardSrcUrl
+                dateAwarded
+                comments
+            }
+        }
+    }`;
+
 // Awards table Start ///////////////
 //the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
@@ -17292,7 +17310,7 @@ let displayAwardsTable = (award) => {
 
         table += `</table>
         <div id='admin-button'>
-        <button type="button" name="update-button" class='addEntry'>Add</button>
+        <button type='button' name='update-button' id='add-award-form' class='addEntry'>Add</button>
         <div>
         `;
 
@@ -17300,6 +17318,53 @@ let displayAwardsTable = (award) => {
 
 };
 // Awards table End ///////////////
+// Awards form Start ///////////////
+let displayAwardsForm = () => {
+
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="imgName">Name of img</label>
+                    <input type="text" class="form-control" id="imgName" name="imgName" placeholder="example: beard-award-logo.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardTitle">Award title</label>
+                    <input type="text" class="form-control" id="awardTitle" name="awardTitle" placeholder="example: Best Cocktail Bar in the World">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardFrom">Award from</label>
+                    <input type="text" class="form-control" id="awardFrom" name="awardFrom" placeholder="example: James Beard Foundation">
+                </div>
+
+                <div class="form-group">
+                    <label for="awardSrcUrl">Url of award page</label>
+                    <input type="url" class="form-control" id="awardSrcUrl" name="awardSrcUrl" placeholder="example: https://www.jamesbeardfoundation.com/awardPage">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateAwarded">Date awarded</label>
+                    <input type="date" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="mm/dd/yyyy">
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <input type="text" class="form-control" id="comments" name="comments" placeholder="Comments">
+                </div>
+
+                <div class="form-group">
+                    <button id="create-award-button" type="button">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+
+
+};
+// Awards form End ///////////////
+
+
 
 // About table Start ///////////////
 let displayAboutsTable = (about) => {
@@ -17334,40 +17399,7 @@ let displayAboutsTable = (about) => {
     $('#tableContent').append(table);//loads what is requested
 
 };
-
 // About table End ///////////////
-// menu form Start ///////////////
-let displayMenuForm = (menu) => {
-    menus.forEach(function(menu) {
-
-        let form = `
-            <form action="#" method="post" class="">
-                <div class="form-group">
-                    <label for="foodMenu">Food Menu</label>
-                    <input type="url" class="form-control" id="foodMenu" name="foodMenu" value="${menu.foodUrl}">
-                </div>
-
-                <div class="form-group">
-                    <label for="cocktailMenu">Cocktail Menu</label>
-                    <input type="url" class="form-control" id="cocktailMenu" name="cocktailMenu" value="${menu.cocktailsUrl}">
-                </div>
-
-                <div class="form-group">
-                    <label for="bottleList">Bottle List</label>
-                    <input type="url" class="form-control" id="bottleList" name="bottleList" value="${menu.bottlesUrl}">
-                </div>
-
-                <div class="form-group">
-                    <button id="update-menu-button" type="submit" class="">Update</button>
-                </div>
-            </form>`;
-
-    $('#tableContent').append(form);//loads what is requested
-    });
-};
-
-// menu form End ///////////////
-
 // About form Start ///////////////
 let displayAboutForm = () => {
 
@@ -17408,6 +17440,38 @@ let displayAboutForm = () => {
 
 };
 // About form END ///////////////
+
+
+// menu form Start ///////////////
+let displayMenuForm = (menu) => {
+    menus.forEach(function(menu) {
+
+        let form = `
+            <form action="#" method="post" class="">
+                <div class="form-group">
+                    <label for="foodMenu">Food Menu</label>
+                    <input type="url" class="form-control" id="foodMenu" name="foodMenu" value="${menu.foodUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="cocktailMenu">Cocktail Menu</label>
+                    <input type="url" class="form-control" id="cocktailMenu" name="cocktailMenu" value="${menu.cocktailsUrl}">
+                </div>
+
+                <div class="form-group">
+                    <label for="bottleList">Bottle List</label>
+                    <input type="url" class="form-control" id="bottleList" name="bottleList" value="${menu.bottlesUrl}">
+                </div>
+
+                <div class="form-group">
+                    <button id="update-menu-button" type="submit" class="">Update</button>
+                </div>
+            </form>`;
+
+    $('#tableContent').append(form);//loads what is requested
+    });
+};
+// menu form End ///////////////
 
 //this is where I query the db and get the info and put it in a var
 
@@ -17460,9 +17524,7 @@ let displayAwards = (awards) => {
 
         $('#awardsPage').append(awardTemplate);
     });
-        // $elem = $('#article-'+ (i + 1));
-        // $elem.find('h1, h2').html(article.title);
-        // $elem.find('article').html(article.content);
+    
 };
 
 // Login query
@@ -17662,11 +17724,16 @@ $("[name='page-select']").change(function(event){
 
 });
 
+// this pops down the form to add a new about article
 $(document).on('click', "#add-about-form", function() {
     displayAboutForm();
 });
+// this pops down the form to add a new award
+$(document).on('click', "#add-award-form", function() {
+    displayAwardsForm();
+});
 
-
+//create a new about article Start
 let createInput = (displayOrder, name, title, imgName) => {
     return {
         "input": {
@@ -17679,7 +17746,6 @@ let createInput = (displayOrder, name, title, imgName) => {
 };
 
 $(document).on('click', '#create-about-button', function() {
-    // event.preventDefault();
 
     let displayOrder = $('#displayOrder').val(),
         name = $('#name').val(),
@@ -17712,6 +17778,61 @@ $(document).on('click', '#create-about-button', function() {
         }
     });
 });
+//create a new about article End
+createNewAward();
+
+function createNewAward(){
+//create a new award article Start
+    let createInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
+        return {
+            "input": {
+                "imgName": imgName,
+                "awardTitle": awardTitle,
+                "awardFrom": awardFrom,
+                "awardSrcUrl": awardSrcUrl,
+                "dateAwarded": dateAwarded,
+                "comments": comments
+            }
+        };
+    };
+
+    $(document).on('click', '#create-award-button', function() {
+
+        let imgName = $('#imgName').val(),
+            awardTitle = $('#awardTitle').val(),
+            awardFrom = $('#awardFrom').val(),
+            awardSrcUrl = $('#awardSrcUrl').val(),
+            dateAwarded = $('#dateAwarded').val(),
+            comments = $('#comments').val(),
+            data = createInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
+
+        $.ajax({
+            type: "POST",
+            url: "https://us-west-2.api.scaphold.io/graphql/canon",
+            data: JSON.stringify({
+                query: createAward,
+                variables: data
+            }),
+            contentType: 'application/json',
+            headers: {
+                'Authorization': 'Bearer ' + Cookies.get('token')
+            },
+            success: function(response) {
+                if (response.hasOwnProperty('data')) {
+                    alert('You created a new about section!');
+                    $('form')[0].reset();
+                }
+            },
+            error: function(xhr, status, response) {
+                console.log(response);
+                if (response.hasOwnProperty('errors')) {
+                    alert(response.errors[0].message);
+                }
+            }
+        });
+    });
+}
+//create a new award article End
 
 $.ajax({
         type: "POST",

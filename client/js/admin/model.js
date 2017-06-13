@@ -16,3 +16,21 @@ export const createAbout = `
             }
         }
     }`;
+
+//make this create new award
+export const createAward = `
+    mutation createAwardQuery($input: CreateAwardInput!) {
+        createAward(input: $input) {
+            changedAward {
+                id
+                modifiedAt
+                createdAt
+                imgName
+                awardTitle
+                awardFrom
+                awardSrcUrl
+                dateAwarded
+                comments
+            }
+        }
+    }`;
