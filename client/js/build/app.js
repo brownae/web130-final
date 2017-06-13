@@ -17243,6 +17243,8 @@ abouts.forEach(function(about) {
 
 };
 
+// queries for the admin section are currently being pulled in from the model of their section
+
 // Awards table Start ///////////////
 //the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
@@ -17278,9 +17280,42 @@ let displayAwardsTable = (award) => {
     $('#tableContent').append(table);//loads what is requested
 
 };
-
-
 // Awards table End ///////////////
+
+// About table Start ///////////////
+let displayAboutsTable = (about) => {
+    let table =
+    `<table>
+        <tr>
+            <th>Display Order</th>
+            <th>name</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>imgName</th>
+        </tr>`;
+
+        abouts.forEach(function(about) {
+                console.log(about);
+        table +=  `<tr>
+                <td>${about.displayOrder}</td>
+                <td>${about.name}</td>
+                <td>${about.title}</td>
+                <td>${about.content}</td>
+                <td>${about.imgName}</td>
+                <td><a href="" id='${about.id}' >Update</a>
+                <a href="" id='${about.id}' >Delete</a></td>
+        </tr>`;
+        });
+
+        table += `</table>
+        <button type="button" name="update-button" class='addEntry'>Add</button>
+        `;
+
+    $('#tableContent').append(table);//loads what is requested
+
+};
+
+// About table End ///////////////
 
 //this is where I query the db and get the info and put it in a var
 
@@ -17474,6 +17509,24 @@ switch(value) {
     case 'about':
         $('#tableContent').empty();//clears what was in div before
         console.log("about block!");
+        $.ajax({
+                type: "POST",
+                url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                data: JSON.stringify({
+                    query: getAllAbouts
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    abouts = [];
+                    if (response.hasOwnProperty('data')) {
+                        let aboutEdges = response.data.viewer.allAbouts.edges;
+                        for (var about of aboutEdges) {
+                            abouts.push(about.node);
+                        }
+                    }
+                    displayAboutsTable(abouts);
+                }
+        });
         break;
     case 'awards':
         $('#tableContent').empty();//clears what was in div before
@@ -17497,7 +17550,6 @@ switch(value) {
                     displayAwardsTable(awards);
                 }
         });
-        console.log(awards);
         break;
     case 'menu':
         $('#tableContent').empty();//clears what was in div before

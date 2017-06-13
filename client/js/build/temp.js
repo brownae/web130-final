@@ -23,7 +23,9 @@ $.ajax({
 });
 
 import '../admin/model.js';
+import '../about/model.js';
 import {displayAwardsTable} from '../admin/view.js';
+import {displayAboutsTable} from '../admin/view.js';
 //import {awards} from '../award/app.js';
 
 
@@ -36,6 +38,24 @@ switch(value) {
     case 'about':
         $('#tableContent').empty();//clears what was in div before
         console.log("about block!");
+        $.ajax({
+                type: "POST",
+                url: "https://us-west-2.api.scaphold.io/graphql/canon",
+                data: JSON.stringify({
+                    query: getAllAbouts
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    abouts = [];
+                    if (response.hasOwnProperty('data')) {
+                        let aboutEdges = response.data.viewer.allAbouts.edges;
+                        for (var about of aboutEdges) {
+                            abouts.push(about.node);
+                        }
+                    }
+                    displayAboutsTable(abouts);
+                }
+        });
         break;
     case 'awards':
         $('#tableContent').empty();//clears what was in div before
@@ -59,7 +79,6 @@ switch(value) {
                     displayAwardsTable(awards);
                 }
         });
-        console.log(awards);
         break;
     case 'menu':
         $('#tableContent').empty();//clears what was in div before

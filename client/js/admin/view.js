@@ -34,6 +34,39 @@ export let displayAwardsTable = (award) => {
     $('#tableContent').append(table);//loads what is requested
 
 };
-
-
 // Awards table End ///////////////
+
+// About table Start ///////////////
+export let displayAboutsTable = (about) => {
+    let table =
+    `<table>
+        <tr>
+            <th>Display Order</th>
+            <th>name</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>imgName</th>
+        </tr>`;
+
+        abouts.forEach(function(about) {
+                console.log(about);
+        table +=  `<tr>
+                <td>${about.displayOrder}</td>
+                <td>${about.name}</td>
+                <td>${about.title}</td>
+                <td>${about.content}</td>
+                <td>${about.imgName}</td>
+                <td><a href="" id='${about.id}' >Update</a>
+                <a href="" id='${about.id}' >Delete</a></td>
+        </tr>`;
+        });
+
+        table += `</table>
+        <button type="button" name="update-button" class='addEntry'>Add</button>
+        `;
+
+    $('#tableContent').append(table);//loads what is requested
+
+};
+
+// About table End ///////////////
