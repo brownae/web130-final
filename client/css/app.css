@@ -246,7 +246,6 @@ a svg:hover #Instagram {
     margin-top: 10px; }
 
 main aside {
-  background-color: #3f3f3f;
   font-family: "Inconsolata", monospace;
   padding: 20px;
   margin: 20px 0;
@@ -259,6 +258,8 @@ main aside {
     main aside {
       width: 70%;
       margin: 20px auto; } }
+  main aside img.text-dividerT {
+    transform: scaleY(-1); }
 
 img.text-divider1 {
   width: 80%;
