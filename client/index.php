@@ -17,7 +17,7 @@
 
     <div class="cta-wrapper">
         <div class="cta cta1">
-            <a href="#" ><h2>Food</h2></a>
+            <a href="" ><h2>Food</h2></a>
             <img src="img/cta-food.png" alt="Food menu for Canon restaurant">
         </div>
 
