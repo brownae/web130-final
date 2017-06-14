@@ -34,3 +34,22 @@ export const createAward = `
             }
         }
     }`;
+
+    // Use this to base your UPDATE menu query
+    // export const getAllMenus = `
+    //     mutation getAllmenus {
+    //         viewer {
+    //             allMenus{
+    //                 edges {
+    //                     node {
+    //                         id
+    //                         modifiedAt
+    //                         createdAt
+    //                         bottlesUrl
+    //                         foodUrl
+    //                         cocktailsUrl
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }`;

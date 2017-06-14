@@ -64,7 +64,7 @@ export let displayAwardsForm = () => {
 
                 <div class="form-group">
                     <label for="dateAwarded">Date awarded</label>
-                    <input type="date" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="Month Year... June 2016">
                 </div>
 
                 <div class="form-group">

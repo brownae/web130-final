@@ -115,8 +115,9 @@ $(document).on('click', "#add-award-form", function() {
     displayAwardsForm();
 });
 
+
 //create a new about article Start
-let createInput = (displayOrder, name, title, imgName) => {
+let createAboutInput = (displayOrder, name, title, imgName) => {
     return {
         "input": {
             "displayOrder": displayOrder,
@@ -129,11 +130,12 @@ let createInput = (displayOrder, name, title, imgName) => {
 
 $(document).on('click', '#create-about-button', function() {
 
+
     let displayOrder = $('#displayOrder').val(),
         name = $('#name').val(),
         title = $('#title').val(),
         imgName = $('#imgName').val(),
-        data = createInput(displayOrder, name, title, imgName);
+        data = createAboutInput(displayOrder, name, title, imgName);
 
     $.ajax({
         type: "POST",
@@ -161,11 +163,11 @@ $(document).on('click', '#create-about-button', function() {
     });
 });
 //create a new about article End
-createNewAward();
 
-function createNewAward(){
+
+
 //create a new award article Start
-    let createInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
+    let createAwardInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
         return {
             "input": {
                 "imgName": imgName,
@@ -186,7 +188,7 @@ function createNewAward(){
             awardSrcUrl = $('#awardSrcUrl').val(),
             dateAwarded = $('#dateAwarded').val(),
             comments = $('#comments').val(),
-            data = createInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
+            data = createAwardInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
 
         $.ajax({
             type: "POST",
@@ -201,7 +203,7 @@ function createNewAward(){
             },
             success: function(response) {
                 if (response.hasOwnProperty('data')) {
-                    alert('You created a new about section!');
+                    alert('You created a new award section!');
                     $('form')[0].reset();
                 }
             },
@@ -213,7 +215,6 @@ function createNewAward(){
             }
         });
     });
-}
 //create a new award article End
 
 import { getAllAwards } from '../award/model';

@@ -17280,6 +17280,25 @@ const createAward = `
         }
     }`;
 
+    // Use this to base your UPDATE menu query
+    // export const getAllMenus = `
+    //     mutation getAllmenus {
+    //         viewer {
+    //             allMenus{
+    //                 edges {
+    //                     node {
+    //                         id
+    //                         modifiedAt
+    //                         createdAt
+    //                         bottlesUrl
+    //                         foodUrl
+    //                         cocktailsUrl
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }`;
+
 // Awards table Start ///////////////
 //the displayAwardsTable function is what makes the view for awards on the admin page.
 let displayAwardsTable = (award) => {
@@ -17345,7 +17364,7 @@ let displayAwardsForm = () => {
 
                 <div class="form-group">
                     <label for="dateAwarded">Date awarded</label>
-                    <input type="date" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="mm/dd/yyyy">
+                    <input type="text" class="form-control" id="dateAwarded" name="dateAwarded" placeholder="Month Year... June 2016">
                 </div>
 
                 <div class="form-group">
@@ -17733,8 +17752,9 @@ $(document).on('click', "#add-award-form", function() {
     displayAwardsForm();
 });
 
+
 //create a new about article Start
-let createInput = (displayOrder, name, title, imgName) => {
+let createAboutInput = (displayOrder, name, title, imgName) => {
     return {
         "input": {
             "displayOrder": displayOrder,
@@ -17747,11 +17767,12 @@ let createInput = (displayOrder, name, title, imgName) => {
 
 $(document).on('click', '#create-about-button', function() {
 
+
     let displayOrder = $('#displayOrder').val(),
         name = $('#name').val(),
         title = $('#title').val(),
         imgName = $('#imgName').val(),
-        data = createInput(displayOrder, name, title, imgName);
+        data = createAboutInput(displayOrder, name, title, imgName);
 
     $.ajax({
         type: "POST",
@@ -17779,11 +17800,11 @@ $(document).on('click', '#create-about-button', function() {
     });
 });
 //create a new about article End
-createNewAward();
 
-function createNewAward(){
+
+
 //create a new award article Start
-    let createInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
+    let createAwardInput = (imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments) => {
         return {
             "input": {
                 "imgName": imgName,
@@ -17804,7 +17825,7 @@ function createNewAward(){
             awardSrcUrl = $('#awardSrcUrl').val(),
             dateAwarded = $('#dateAwarded').val(),
             comments = $('#comments').val(),
-            data = createInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
+            data = createAwardInput(imgName, awardTitle, awardFrom, awardSrcUrl, dateAwarded, comments );
 
         $.ajax({
             type: "POST",
@@ -17819,7 +17840,7 @@ function createNewAward(){
             },
             success: function(response) {
                 if (response.hasOwnProperty('data')) {
-                    alert('You created a new about section!');
+                    alert('You created a new award section!');
                     $('form')[0].reset();
                 }
             },
@@ -17831,7 +17852,6 @@ function createNewAward(){
             }
         });
     });
-}
 //create a new award article End
 
 $.ajax({
