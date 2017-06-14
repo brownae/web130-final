@@ -206,6 +206,7 @@ main aside {
   clear: both; }
 
 .cta {
+  box-sizing: border-box;
   margin: 20px 0;
   position: relative; }
   .cta a {
@@ -219,22 +220,22 @@ main aside {
 
 @media (min-width: 480px) and (max-width: 899px) {
   .cta1, .cta3 {
-    width: 49%;
+    width: 49.99%;
     float: left; } }
 
 @media (min-width: 900px) {
   .cta1, .cta3 {
-    width: 50%;
+    width: 49.99%;
     float: left; } }
 
 @media (min-width: 480px) and (max-width: 899px) {
   .cta2, .cta4 {
-    width: 49%;
+    width: 49.99%;
     float: right; } }
 
 @media (min-width: 900px) {
   .cta2, .cta4 {
-    width: 50%;
+    width: 49.99%;
     float: right; } }
 
 img {

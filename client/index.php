@@ -19,6 +19,12 @@
             <a href="#" ><h2>Food</h2></a>
             <img src="img/cta-food.png" alt="Food menu for Canon restaurant">
         </div>
+        <div class="cta subCta1">
+            <a href="#">
+                <h2>Food</h2>
+                <p>Try the best food EVER!</p>
+            </a>
+        </div>
         <div class="cta cta2">
             <a href="#" ><h2>Cocktails</h2></a>
             <img src="img/cta-cocktails.png" alt="Cocktail menu for Canon restaurant">
