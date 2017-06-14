@@ -17546,6 +17546,81 @@ let displayAwards = (awards) => {
     
 };
 
+$(function() { // DOM Ready
+    // Insert all scripts here
+
+    $('nav ul li > a:not(:only-child)').click(function(e) {
+        $(this).siblings('.nav-dropdown').toggle();
+
+        //Prevent other nav-dropdowns from opening when one is clicked
+        $('.nav-dropdown').not($(this).siblings()).hide();
+            e.stopPropagation();
+    });
+
+    //this makes the menu hide again if someone clicks outside of the nav(ie on the html)
+    $('html').click(function() {
+        $('.nav-dropdown').hide();
+    });
+
+    //toggles the mobile X and hamburger
+    $('#nav-toggle').on('click', function() {
+        this.classList.toggle('active');
+    });
+
+    $('#nav-toggle').click(function() {
+        $('nav ul').toggle();
+        $('nav').toggleClass('active-nav');
+        console.log('Test');
+    });
+
+    $(document).scroll(function () {
+     var $nav = $("nav");
+     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+   });
+//test
+});
+
+$(function() {
+
+
+if(isMobileDevice() === true){
+
+    let imgHead = `<img class="top-img" src="img/truffle-old-fashioned-cocktail-canon-seattle.jpg" alt="truffle old fashioned cocktail canon seattle">`;
+
+    let topLogo = `<div class="logo">
+        <h1>Canon whiskey and bitters emporium</h1>
+        <img id='main-logo' src="img/canon-logo-white.svg" alt="Canon whiskey and bitters emporium">`;
+
+    $('header#mainHeader').append(imgHead);
+    $('main#homePage').prepend(topLogo);
+
+} else {
+
+    let videoHead = `
+    <div class='container'>
+      <div class='content'>
+        <img id='main-logo' src="img/canon-logo-white.svg" alt="Canon whiskey and bitters emporium">
+      </div>
+      <video autoplay class='video' loop muted width='480'>
+        <!-- <source src='video/canon-shot-1.mp4' type='video/mp4'> -->
+        <!-- <source src='video/canon-shot-1.ogv' type='video/ogg'> -->
+        <source src='video/canon-shot-2.ogv' type='video/ogg'>
+
+        <!-- <source src='video/canon-shot-3.ogv' type='video/ogg'> -->
+      </video>
+    </div>`;
+
+    $('header#mainHeader').append(videoHead);
+
+    }
+
+});
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+console.log(isMobileDevice());
+
 // Login query
 const loginUser = `
     mutation loginUserQuery($input: LoginUserInput!) {
@@ -17892,38 +17967,4 @@ $.ajax({
             console.log(menus);
             displayMenus(menus);
         }
-});
-
-$(function() { // DOM Ready
-    // Insert all scripts here
-
-    $('nav ul li > a:not(:only-child)').click(function(e) {
-        $(this).siblings('.nav-dropdown').toggle();
-
-        //Prevent other nav-dropdowns from opening when one is clicked
-        $('.nav-dropdown').not($(this).siblings()).hide();
-            e.stopPropagation();
-    });
-
-    //this makes the menu hide again if someone clicks outside of the nav(ie on the html)
-    $('html').click(function() {
-        $('.nav-dropdown').hide();
-    });
-
-    //toggles the mobile X and hamburger
-    $('#nav-toggle').on('click', function() {
-        this.classList.toggle('active');
-    });
-
-    $('#nav-toggle').click(function() {
-        $('nav ul').toggle();
-        $('nav').toggleClass('active-nav');
-        console.log('Test');
-    });
-
-    $(document).scroll(function () {
-     var $nav = $("nav");
-     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-   });
-//test
 });

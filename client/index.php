@@ -1,13 +1,14 @@
 <?php include('includes/header.php');?>
 
-<img class="top-img" src="img/truffle-old-fashioned-cocktail-canon-seattle.jpg" alt="truffle old fashioned cocktail canon seattle">
+<header id='mainHeader'>
+    <!-- Will populate from homepage.js depending on device -->
+</header>
 
 <main id="homePage">
-    <div class="logo">
+    <!-- <div class="logo">
         <h1>Canon whiskey and bitters emporium</h1>
         <img id='main-logo' src="img/canon-logo-white.svg" alt="Canon whiskey and bitters emporium">
-
-    </div>
+    </div> -->
     <div class="info">
         <address>928 12th Ave, Seattle, WA</address>
         <p>Open 5pm-2am daily.</p>
@@ -19,12 +20,7 @@
             <a href="#" ><h2>Food</h2></a>
             <img src="img/cta-food.png" alt="Food menu for Canon restaurant">
         </div>
-        <div class="cta subCta1">
-            <a href="#">
-                <h2>Food</h2>
-                <p>Try the best food EVER!</p>
-            </a>
-        </div>
+
         <div class="cta cta2">
             <a href="#" ><h2>Cocktails</h2></a>
             <img src="img/cta-cocktails.png" alt="Cocktail menu for Canon restaurant">
