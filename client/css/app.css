@@ -260,6 +260,10 @@ main aside {
       width: 70%;
       margin: 20px auto; } }
 
+img.text-divider1 {
+  width: 80%;
+  margin: 25px 0; }
+
 .cta {
   box-sizing: border-box;
   margin: 20px 0;
@@ -316,7 +320,7 @@ a:hover {
   color: #ffde4c; }
 
 p {
-  margin-top: 10px; }
+  margin: 10px 0; }
 
 h2 {
   font-size: 1.5em;

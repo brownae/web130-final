@@ -52,6 +52,11 @@
         </div>
     </div>
 
+
+<!-- Where page divider came from. http://all-free-download.com/free-vector/download/vector-set-of-ornamental-design-rule-lines_569779.html http://all-free-download.com/free-vector/download/floral_design_elements_vintage_dividers_vector_set_570115_download.html-->
+<!-- Where video Background came from. // Credit goes to Alan Casey for background video.
+// https://codepen.io/TheRealAlan/pen/oLLrZp-->
+
 </footer>
 <script src="js/build/app.js" charset="utf-8"></script>
     </div> <!-- Close - div with id='wrapper' -->
