@@ -228,7 +228,7 @@ a svg:hover #Instagram {
   margin: 25px auto; }
   .logo h1 {
     display: none; }
-  @media (min-width: 480px) and (max-width: 899px) {
+  @media (min-width: 680px) and (max-width: 899px) {
     .logo {
       width: 50%; } }
   @media (min-width: 900px) {
@@ -250,7 +250,7 @@ main aside {
   padding: 20px;
   margin: 20px 0;
   clear: both; }
-  @media (min-width: 480px) and (max-width: 899px) {
+  @media (min-width: 680px) and (max-width: 899px) {
     main aside {
       width: 70%;
       margin: 20px auto; } }
@@ -278,7 +278,7 @@ img.text-divider1 {
     text-align: center;
     margin-top: 11%; }
 
-@media (min-width: 480px) and (max-width: 899px) {
+@media (min-width: 680px) and (max-width: 899px) {
   .cta1, .cta3 {
     width: 49.99%;
     float: left; } }
@@ -288,7 +288,7 @@ img.text-divider1 {
     width: 49.99%;
     float: left; } }
 
-@media (min-width: 480px) and (max-width: 899px) {
+@media (min-width: 680px) and (max-width: 899px) {
   .cta2, .cta4 {
     width: 49.99%;
     float: right; } }
@@ -347,7 +347,7 @@ header {
       font-size: 70%;
       border: 1px solid #fff;
       color: white; }
-      @media (min-width: 480px) and (max-width: 899px) {
+      @media (min-width: 680px) and (max-width: 899px) {
         header div h2 {
           font-size: 100%; } }
       @media (min-width: 900px) {
@@ -363,7 +363,7 @@ article, form, table {
   overflow: auto;
   display: flex;
   flex-direction: column; }
-  @media (min-width: 480px) and (max-width: 899px) {
+  @media (min-width: 680px) and (max-width: 899px) {
     article, form, table {
       flex-direction: row; } }
   @media (min-width: 900px) {
@@ -378,7 +378,7 @@ article, form, table {
   article .img-about, form .img-about, table .img-about, article .img-award, form .img-award, table .img-award {
     width: 80%;
     margin: 15px auto; }
-    @media (min-width: 480px) and (max-width: 899px) {
+    @media (min-width: 680px) and (max-width: 899px) {
       article .img-about, form .img-about, table .img-about, article .img-award, form .img-award, table .img-award {
         width: 30%;
         margin-right: 20px; } }
@@ -389,7 +389,7 @@ article, form, table {
   article .content-award, form .content-award, table .content-award {
     width: 100%;
     margin: auto 0; }
-    @media (min-width: 480px) and (max-width: 899px) {
+    @media (min-width: 680px) and (max-width: 899px) {
       article .content-award, form .content-award, table .content-award {
         width: 70%; } }
     @media (min-width: 900px) {
@@ -398,7 +398,7 @@ article, form, table {
   article .content-about, form .content-about, table .content-about {
     width: 100%;
     margin: auto 0; }
-    @media (min-width: 480px) and (max-width: 899px) {
+    @media (min-width: 680px) and (max-width: 899px) {
       article .content-about, form .content-about, table .content-about {
         width: 70%; } }
     @media (min-width: 900px) {
@@ -499,7 +499,7 @@ table {
 
 .columns {
   column-width: 8em; }
-  @media (min-width: 480px) and (max-width: 899px) {
+  @media (min-width: 680px) and (max-width: 899px) {
     .columns {
       column-width: 11.2em; } }
   @media (min-width: 900px) {
