@@ -7,7 +7,8 @@
 </header>
 <main id="admin-page">
     <form action="#" method="post" class="">
-        <div class="form-group">
+        <div class="form-group" id="adminSelector">
+            <label for="pageSelection">Select a page:</label>
             <select name="page-select">
                 <option value="null"></option>
                 <option value="about">About</option>
@@ -18,7 +19,7 @@
     </form>
 
     <div id="tableContent">
-        
+
 
     </div>
 

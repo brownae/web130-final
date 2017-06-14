@@ -402,6 +402,10 @@ div.form-group {
   div.form-group select {
     background-color: #bababa; }
 
+#adminSelector {
+  margin: auto;
+  width: 50%; }
+
 select {
   background: transparent;
   border: none;
