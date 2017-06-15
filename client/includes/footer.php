@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="#">Reservations</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="#">Menu</a></li>
+                <li style="color:#000;">Menus &#9662;</li>
                     <ul class="menus">
                         <!-- ajax query will populate here -->
                     </ul>
@@ -60,7 +60,7 @@ http://all-free-download.com/free-vector/download/vintage_labels_and_borders_vec
 // https://codepen.io/TheRealAlan/pen/oLLrZp-->
 
 </footer>
-<script src="js/build/app.js" charset="utf-8"></script>
+<script src="js/build/app.min.js" charset="utf-8"></script>
     </div> <!-- Close - div with id='wrapper' -->
 </body>
 </html>

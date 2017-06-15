@@ -17837,12 +17837,13 @@ $(document).on('click', "#add-award-form", function() {
 
 
 //create a new about article Start
-let createAboutInput = (displayOrder, name, title, imgName) => {
+let createAboutInput = (displayOrder, name, title, content, imgName) => {
     return {
         "input": {
             "displayOrder": displayOrder,
             "name": name,
             "title": title,
+            "content": content,
             "imgName": imgName
         }
     };
@@ -17854,8 +17855,9 @@ $(document).on('click', '#create-about-button', function() {
     let displayOrder = $('#displayOrder').val(),
         name = $('#name').val(),
         title = $('#title').val(),
+        content = $('#content').val(),
         imgName = $('#imgName').val(),
-        data = createAboutInput(displayOrder, name, title, imgName);
+        data = createAboutInput(displayOrder, name, title, content, imgName);
 
     $.ajax({
         type: "POST",
