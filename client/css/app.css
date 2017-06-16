@@ -115,8 +115,7 @@ nav {
   height: 50px;
   width: 100%;
   position: fixed;
-  z-index: 2;
-  max-width: 1200px; }
+  z-index: 2; }
 
 .nav-container {
   margin: 0 auto;
@@ -218,10 +217,11 @@ a svg:hover #Instagram {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  margin: auto; }
-  @media screen and (max-aspect-ratio: 239 / 100) {
+  margin: auto;
+  width: auto; }
+  @media (min-width: 900px) {
     .video {
-      width: auto; } }
+      width: 100%; } }
 
 .logo {
   width: 75%;
@@ -314,7 +314,6 @@ body {
   width: 100%; }
 
 div#wrapper {
-  max-width: 1200px;
   margin: auto; }
 
 a:hover {

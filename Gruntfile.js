@@ -151,6 +151,7 @@ module.exports = (grunt) => {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rollup');
+    
     grunt.registerTask('dev',
         "Join and rollup all the ES6, but don't transpile.",
         ['jshint:all', 'clean:js', 'concat:js', 'rollup:dev', 'concat:all']

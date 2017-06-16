@@ -60,7 +60,7 @@ http://all-free-download.com/free-vector/download/vintage_labels_and_borders_vec
 // https://codepen.io/TheRealAlan/pen/oLLrZp-->
 
 </footer>
-<script src="js/build/app.min.js" charset="utf-8"></script>
+<script src="js/build/app.js" charset="utf-8"></script>
     </div> <!-- Close - div with id='wrapper' -->
 </body>
 </html>
